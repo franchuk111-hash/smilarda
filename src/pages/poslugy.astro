@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+const bc = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Головна', item: 'https://smilarda.org.ua/' },
+    { '@type': 'ListItem', position: 2, name: 'Послуги', item: 'https://smilarda.org.ua/poslugy' },
+  ],
+};
+---
+<Base
+  title="Будівельні послуги у Смілі — покрівля, фасади, ремонт | БудСміла"
+  description="Види будівельних і ремонтних робіт у Смілі: покрівля, утеплення фасаду, гідроізоляція, загальнобудівельні роботи, ремонт квартир під ключ і монтаж септиків. Що входить у кожну послугу."
+  path="/poslugy"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(bc)} />
+
+  <div class="container"><div class="crumbs"><a href="/">Головна</a> → Послуги</div></div>
+
+  <section class="block" style="padding-top:6px"><div class="container">
+    <p class="kicker">Види робіт</p>
+    <h2 class="title">Будівельні та ремонтні послуги у Смілі</h2>
+    <p class="sub">Нижче — основні напрямки робіт із коротким описом того, що входить у кожну послугу. Точний обсяг і кошторис визначають після виїзду майстра на об'єкт.</p>
+
+    <div class="services">
+      <div class="svc" id="pokrivlya"><div class="ico">🏠</div><h3>Покрівельні роботи</h3><p>Монтаж нової та ремонт старої покрівлі: металочерепиця, профнастил, бітумна (гнучка) черепиця. Влаштування крокв, гідро- й пароізоляції, утеплення даху, монтаж водостічних систем, підшивка карнизів.</p><div class="price">від <b>690 грн</b>/м²</div><a class="more" href="/blog/pokrivlya">Як обрати покрівлю →</a></div>
+      <div class="svc" id="fasad"><div class="ico">🧱</div><h3>Утеплення фасаду</h3><p>Технологія «мокрий фасад»: підготовка основи, монтаж утеплювача (мінвата або пінополістирол), армувальний шар, ґрунтування та декоративна штукатурка (короїд, баранець). Тепліше житло та економія на опаленні.</p><div class="price">від <b>540 грн</b>/м²</div><a class="more" href="/blog/uteplennya">Матеріали та ціни →</a></div>
+      <div class="svc" id="gidro"><div class="ico">💧</div><h3>Гідроізоляція</h3><p>Захист конструкцій від вологи: обмазувальна, рулонна (наплавлювана) та проникна гідроізоляція. Фундаменти, підвали, цоколі, тераси, санвузли та пласкі покрівлі. Продовжує строк служби будівлі.</p><div class="price">від <b>420 грн</b>/м²</div><a class="more" href="/tsiny">Ціни на роботи →</a></div>
+      <div class="svc" id="zagalno"><div class="ico">🏗️</div><h3>Загальнобудівельні роботи</h3><p>Повний цикл: земляні роботи, стрічкові та плитні фундаменти, мурування стін із газоблоку й цегли, монтаж перегородок, стяжки підлоги, реконструкція та прибудови до будинку.</p><div class="price">від <b>780 грн</b>/м²</div><a class="more" href="/tsiny">Ціни на роботи →</a></div>
+      <div class="svc" id="remont"><div class="ico">🛠️</div><h3>Ремонт квартир і будинків під ключ</h3><p>Косметичний і капітальний ремонт: демонтаж, розведення електрики й сантехніки, вирівнювання стін і стель, монтаж підлоги, малярні роботи, укладання плитки та фінішне оздоблення.</p><div class="price">від <b>3 200 грн</b>/м²</div><a class="more" href="/blog/remont">Етапи ремонту →</a></div>
+      <div class="svc" id="septyk"><div class="ico">🚰</div><h3>Монтаж септиків</h3><p>Автономна каналізація для приватного будинку чи дачі: підбір септика під кількість мешканців і тип ґрунту, земляні роботи, установка, підключення й запуск. Рішення «під ключ».</p><div class="price">від <b>18 000 грн</b>/шт</div><a class="more" href="/kontakty">Замовити консультацію →</a></div>
+    </div>
+  </div></section>
+
+  <section class="block" style="padding-top:0"><div class="container">
+    <div class="partner">
+      <div>
+        <span class="badge">⭐ Рекомендований підрядник</span>
+        <h2>Потрібен виконавець у Смілі?</h2>
+        <p>Усі перелічені роботи виконує місцева бригада V.G.BuildingTeam — із договором, фотозвітом та гарантією. Безкоштовний виїзд на прорахунок по Смілі та району.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="https://vgb.team/" target="_blank" rel="noopener" class="btn lg">Перейти на vgb.team ↗</a>
+        <a href="tel:+380977799513" class="btn ghost lg" style="text-align:center">📞 +38 (097) 779 95 13</a>
+      </div>
+    </div>
+  </div></section>
+</Base>

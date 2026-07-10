@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+const bc = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Головна', item: 'https://smilarda.org.ua/' },
+    { '@type': 'ListItem', position: 2, name: 'Контакти', item: 'https://smilarda.org.ua/kontakty' },
+  ],
+};
+---
+<Base
+  title="Контакти — будівництво та ремонт у Смілі | БудСміла"
+  description="Контакти порталу БудСміла та рекомендованого підрядника V.G.BuildingTeam у Смілі: телефон, месенджери, графік роботи. Замовте безкоштовний виїзд на прорахунок."
+  path="/kontakty"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(bc)} />
+
+  <div class="container"><div class="crumbs"><a href="/">Головна</a> → Контакти</div></div>
+
+  <section class="block" style="padding-top:6px"><div class="container">
+    <p class="kicker">Контакти</p>
+    <h2 class="title">Зв'язатися та замовити роботи у Смілі</h2>
+    <p class="sub">БудСміла — інформаційний портал. Замовлення будівельних і ремонтних робіт виконує наш рекомендований підрядник V.G.BuildingTeam.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Рекомендований підрядник</h3>
+        <div class="contact-row"><span class="ico">🏢</span><div><b>V.G.BuildingTeam</b><span>Будівництво та ремонт під ключ</span></div></div>
+        <div class="contact-row"><span class="ico">📞</span><div><b><a href="tel:+380977799513">+38 (097) 779 95 13</a></b><span>Дзвінки, Viber</span></div></div>
+        <div class="contact-row"><span class="ico">🌐</span><div><b><a href="https://vgb.team/" target="_blank" rel="noopener">vgb.team</a></b><span>Портфоліо, послуги та ціни</span></div></div>
+        <div class="contact-row"><span class="ico">📍</span><div><b>Сміла, Черкаська область</b><span>Виїзд по місту та району</span></div></div>
+        <div class="contact-row"><span class="ico">🕒</span><div><b>Пн–Сб, 8:00–19:00</b><span>Неділя — за домовленістю</span></div></div>
+        <p style="margin-top:20px"><a href="https://vgb.team/" target="_blank" rel="noopener" class="btn lg">Замовити прорахунок ↗</a></p>
+      </div>
+
+      <div class="contact-card">
+        <h3>Про портал БудСміла</h3>
+        <p style="color:var(--muted)">Ми публікуємо орієнтовні ціни, гайди та поради з будівництва й ремонту, щоб мешканці Сміли могли спланувати роботи та обрати надійного виконавця.</p>
+        <p style="color:var(--muted)">Портал не виконує роботи безпосередньо — за замовленнями звертайтеся до рекомендованого підрядника за контактами ліворуч.</p>
+        <div class="contact-row" style="margin-top:8px"><span class="ico">🧭</span><div><b>Розділи сайту</b><span><a href="/poslugy">Послуги</a> · <a href="/tsiny">Ціни</a> · <a href="/blog">Блог</a> · <a href="/robota">Робота</a></span></div></div>
+        <div class="contact-row"><span class="ico">📚</span><div><b>Корисні статті</b><span><a href="/blog/pokrivlya">Покрівля</a> · <a href="/blog/uteplennya">Фасад</a> · <a href="/blog/remont">Ремонт</a></span></div></div>
+      </div>
+    </div>
+  </div></section>
+</Base>
