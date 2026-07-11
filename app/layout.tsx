@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ScrollProgress } from '@/components/Motion';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://smilarda.org.ua'),
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="uk">
       <body>
+        <ScrollProgress />
         <Header />
         {children}
         <Footer />

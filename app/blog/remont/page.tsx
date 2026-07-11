@@ -15,7 +15,7 @@ export default function Page() {
     <ArticleShell
       slug="remont"
       crumb="Ремонт під ключ"
-      cover="🛠️"
+      cover="wrench"
       title="Ремонт квартири під ключ: етапи та бюджет"
       meta="Категорія: Ремонт · 8 хв читання · Оновлено 2026"
       headline="Ремонт квартири під ключ: етапи та бюджет"

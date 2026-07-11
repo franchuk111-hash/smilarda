@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import Icon from './Icon';
 
 const links = [
   { href: '/', label: 'Головна' },
@@ -16,21 +17,26 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = (usePathname() || '/').replace(/\/$/, '') || '/';
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <motion.header
-      className="site"
+      className={`site${scrolled ? ' scrolled' : ''}`}
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="container nav">
         <Link href="/" className="logo" onClick={() => setOpen(false)}>
-          <span className="mark">
-            <svg viewBox="0 0 24 24"><path d="M12 3 3 10v11h6v-6h6v6h6V10z" /></svg>
-          </span>{' '}
-          Буд<b>Сміла</b>
+          <span className="mark"><Icon name="home" /></span> Буд<b>Сміла</b>
         </Link>
         <nav className={`nav-links${open ? ' open' : ''}`}>
           {links.map((l) => {

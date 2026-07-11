@@ -15,7 +15,7 @@ export default function Page() {
     <ArticleShell
       slug="uteplennya"
       crumb="Утеплення фасаду"
-      cover="🧱"
+      cover="brick"
       title="Утеплення фасаду: матеріали та ціни 2026"
       meta="Категорія: Фасад · 6 хв читання · Оновлено 2026"
       headline="Утеплення фасаду: матеріали та ціни 2026"

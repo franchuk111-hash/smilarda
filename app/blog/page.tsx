@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { breadcrumb } from '@/components/JsonLd';
 import PartnerBand from '@/components/PartnerBand';
+import Icon from '@/components/Icon';
 import { Reveal, Stagger, Item } from '@/components/Motion';
 
 export const metadata: Metadata = {
@@ -12,9 +13,9 @@ export const metadata: Metadata = {
 };
 
 const posts = [
-  { href: '/blog/pokrivlya', ico: '🏠', cat: 'Покрівля', h: 'Як вибрати покрівлю для приватного будинку', p: 'Металочерепиця, профнастил чи бітумна черепиця — порівнюємо за ціною, довговічністю, вагою та монтажем.', min: '7 хв читання' },
-  { href: '/blog/uteplennya', ico: '🧱', cat: 'Фасад', h: 'Утеплення фасаду: матеріали та ціни 2026', p: 'Мінеральна вата чи пінополістирол, яку товщину обрати та скільки коштує «мокрий фасад» у Смілі.', min: '6 хв читання' },
-  { href: '/blog/remont', ico: '🛠️', cat: 'Ремонт', h: 'Ремонт квартири під ключ: етапи та бюджет', p: 'Покрокова послідовність робіт — від демонтажу до чистового оздоблення, щоб нічого не забути й не переплатити.', min: '8 хв читання' },
+  { href: '/blog/pokrivlya', ico: 'home', cat: 'Покрівля', h: 'Як вибрати покрівлю для приватного будинку', p: 'Металочерепиця, профнастил чи бітумна черепиця — порівнюємо за ціною, довговічністю, вагою та монтажем.', min: '7 хв читання' },
+  { href: '/blog/uteplennya', ico: 'brick', cat: 'Фасад', h: 'Утеплення фасаду: матеріали та ціни 2026', p: 'Мінеральна вата чи пінополістирол, яку товщину обрати та скільки коштує «мокрий фасад» у Смілі.', min: '6 хв читання' },
+  { href: '/blog/remont', ico: 'wrench', cat: 'Ремонт', h: 'Ремонт квартири під ключ: етапи та бюджет', p: 'Покрокова послідовність робіт — від демонтажу до чистового оздоблення, щоб нічого не забути й не переплатити.', min: '8 хв читання' },
 ];
 
 export default function Blog() {
@@ -33,7 +34,7 @@ export default function Blog() {
           {posts.map((p) => (
             <Item key={p.href} hover>
               <Link className="post" href={p.href} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                <div className="cover">{p.ico}</div>
+                <div className="cover"><Icon name={p.ico} /></div>
                 <div className="body">
                   <span className="cat">{p.cat}</span>
                   <h3>{p.h}</h3>

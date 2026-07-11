@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import JsonLd, { breadcrumb } from './JsonLd';
 import { Reveal } from './Motion';
+import Icon from './Icon';
 import type { ReactNode } from 'react';
 
 type Props = {
@@ -43,7 +44,7 @@ export default function ArticleShell({ slug, crumb, cover, title, meta, headline
       <section className="block" style={{ paddingTop: 6 }}>
         <div className="container">
           <Reveal className="article">
-            <div className="cover-hero">{cover}</div>
+            <div className="cover-hero"><Icon name={cover} /></div>
             <h1>{title}</h1>
             <p className="meta">{meta}</p>
             {children}

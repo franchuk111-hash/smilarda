@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
 import PartnerBand from '@/components/PartnerBand';
-import { Reveal, Stagger, Item, Counter } from '@/components/Motion';
+import Icon from '@/components/Icon';
+import Marquee from '@/components/Marquee';
+import { Reveal, Stagger, Item, Tilt, Counter } from '@/components/Motion';
 
 export const metadata: Metadata = {
   title: 'Будівництво та ремонт у Смілі — ціни, поради, підрядники 2026 | БудСміла',
@@ -12,32 +14,32 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { ico: '🏠', h: 'Покрівельні роботи', p: 'Монтаж і ремонт покрівлі: металочерепиця, профнастил, бітумна черепиця, водостічні системи та утеплення даху.', price: '690 грн', unit: '/м²', more: 'Як обрати покрівлю →', href: '/blog/pokrivlya' },
-  { ico: '🧱', h: 'Утеплення фасаду', p: 'Мокрий фасад, мінеральна вата чи пінополістирол, декоративна штукатурка. Тепліше житло й менші рахунки за опалення.', price: '540 грн', unit: '/м²', more: 'Матеріали та ціни →', href: '/blog/uteplennya' },
-  { ico: '💧', h: 'Гідроізоляція', p: 'Захист фундаменту, підвалу, покрівлі та санвузлів від вологи. Обмазувальна, рулонна та проникна гідроізоляція.', price: '420 грн', unit: '/м²', more: 'Детальні ціни →', href: '/tsiny' },
-  { ico: '🏗️', h: 'Загальнобудівельні роботи', p: 'Фундаменти, мурування, перегородки, стяжки, реконструкція та прибудови. Повний цикл — від котловану до здачі.', price: '780 грн', unit: '/м²', more: 'Усі роботи →', href: '/poslugy' },
-  { ico: '🛠️', h: 'Ремонт квартир під ключ', p: 'Косметичний і капітальний ремонт: демонтаж, електрика, сантехніка, стіни, стеля, підлога та фінішне оздоблення.', price: '3 200 грн', unit: '/м²', more: 'Етапи ремонту →', href: '/blog/remont' },
-  { ico: '🚰', h: 'Монтаж септиків', p: 'Автономна каналізація для приватного будинку чи дачі: підбір, установка й запуск септика під ваш ґрунт.', price: '18 000 грн', unit: '/шт', more: 'Докладніше →', href: '/poslugy' },
+  { ico: 'home', h: 'Покрівельні роботи', p: 'Монтаж і ремонт покрівлі: металочерепиця, профнастил, бітумна черепиця, водостічні системи та утеплення даху.', price: '690 грн', unit: '/м²', more: 'Як обрати покрівлю →', href: '/blog/pokrivlya' },
+  { ico: 'brick', h: 'Утеплення фасаду', p: 'Мокрий фасад, мінеральна вата чи пінополістирол, декоративна штукатурка. Тепліше житло й менші рахунки за опалення.', price: '540 грн', unit: '/м²', more: 'Матеріали та ціни →', href: '/blog/uteplennya' },
+  { ico: 'droplet', h: 'Гідроізоляція', p: 'Захист фундаменту, підвалу, покрівлі та санвузлів від вологи. Обмазувальна, рулонна та проникна гідроізоляція.', price: '420 грн', unit: '/м²', more: 'Детальні ціни →', href: '/tsiny' },
+  { ico: 'building', h: 'Загальнобудівельні роботи', p: 'Фундаменти, мурування, перегородки, стяжки, реконструкція та прибудови. Повний цикл — від котловану до здачі.', price: '780 грн', unit: '/м²', more: 'Усі роботи →', href: '/poslugy' },
+  { ico: 'wrench', h: 'Ремонт квартир під ключ', p: 'Косметичний і капітальний ремонт: демонтаж, електрика, сантехніка, стіни, стеля, підлога та фінішне оздоблення.', price: '3 200 грн', unit: '/м²', more: 'Етапи ремонту →', href: '/blog/remont' },
+  { ico: 'tank', h: 'Монтаж септиків', p: 'Автономна каналізація для приватного будинку чи дачі: підбір, установка й запуск септика під ваш ґрунт.', price: '18 000 грн', unit: '/шт', more: 'Докладніше →', href: '/poslugy' },
 ];
 
 const why = [
-  { ico: '📋', h: 'Кошторис наперед', p: 'Дивіться орієнтовні ціни за м² до старту, щоб реально спланувати бюджет.' },
-  { ico: '✅', h: 'Перевірений підрядник', p: 'Договір, фото робіт і гарантія — ознаки бригади, якій можна довіряти.' },
-  { ico: '🧰', h: 'Правильні матеріали', p: 'Підбір матеріалів під клімат і бюджет економить гроші на роках експлуатації.' },
-  { ico: '📍', h: 'Локально у Смілі', p: 'Місцева бригада швидше виїжджає на об’єкт і знає особливості регіону.' },
+  { ico: 'clipboard', h: 'Кошторис наперед', p: 'Дивіться орієнтовні ціни за м² до старту, щоб реально спланувати бюджет.' },
+  { ico: 'shield', h: 'Перевірений підрядник', p: 'Договір, фото робіт і гарантія — ознаки бригади, якій можна довіряти.' },
+  { ico: 'package', h: 'Правильні матеріали', p: 'Підбір матеріалів під клімат і бюджет економить гроші на роках експлуатації.' },
+  { ico: 'pin', h: 'Локально у Смілі', p: 'Місцева бригада швидше виїжджає на об’єкт і знає особливості регіону.' },
 ];
 
 const posts = [
-  { href: '/blog/pokrivlya', ico: '🏠', cat: 'Покрівля', h: 'Як вибрати покрівлю для приватного будинку', p: 'Металочерепиця, профнастил чи бітумна черепиця — порівнюємо за ціною, довговічністю та монтажем.', min: 'Читати · 7 хв' },
-  { href: '/blog/uteplennya', ico: '🧱', cat: 'Фасад', h: 'Утеплення фасаду: матеріали та ціни 2026', p: 'Мінвата чи пінопласт, товщина утеплювача та скільки коштує «мокрий фасад» у Смілі.', min: 'Читати · 6 хв' },
-  { href: '/blog/remont', ico: '🛠️', cat: 'Ремонт', h: 'Ремонт квартири під ключ: етапи та бюджет', p: 'Покрокова послідовність робіт — від демонтажу до чистового оздоблення, щоб нічого не забути.', min: 'Читати · 8 хв' },
+  { href: '/blog/pokrivlya', ico: 'home', cat: 'Покрівля', h: 'Як вибрати покрівлю для приватного будинку', p: 'Металочерепиця, профнастил чи бітумна черепиця — порівнюємо за ціною, довговічністю та монтажем.', min: 'Читати · 7 хв' },
+  { href: '/blog/uteplennya', ico: 'brick', cat: 'Фасад', h: 'Утеплення фасаду: матеріали та ціни 2026', p: 'Мінвата чи пінопласт, товщина утеплювача та скільки коштує «мокрий фасад» у Смілі.', min: 'Читати · 6 хв' },
+  { href: '/blog/remont', ico: 'wrench', cat: 'Ремонт', h: 'Ремонт квартири під ключ: етапи та бюджет', p: 'Покрокова послідовність робіт — від демонтажу до чистового оздоблення, щоб нічого не забути.', min: 'Читати · 8 хв' },
 ];
 
 const jobs = [
-  { ico: '🧱', h: 'Муляр', p: 'Мурування стін і перегородок із газоблоку та цегли.' },
-  { ico: '🏠', h: 'Покрівельник', p: 'Монтаж металочерепиці, профнастилу, гнучкої черепиці.' },
-  { ico: '🎨', h: 'Оздоблювальник', p: 'Штукатурка, шпаклівка, фарбування, укладання плитки.' },
-  { ico: '👷', h: 'Підсобник', p: 'Старт без досвіду з можливістю опанувати ремесло.' },
+  { ico: 'brick', h: 'Муляр', p: 'Мурування стін і перегородок із газоблоку та цегли.' },
+  { ico: 'home', h: 'Покрівельник', p: 'Монтаж металочерепиці, профнастилу, гнучкої черепиці.' },
+  { ico: 'roller', h: 'Оздоблювальник', p: 'Штукатурка, шпаклівка, фарбування, укладання плитки.' },
+  { ico: 'hardhat', h: 'Підсобник', p: 'Старт без досвіду з можливістю опанувати ремесло.' },
 ];
 
 export default function Home() {
@@ -56,27 +58,31 @@ export default function Home() {
       />
 
       <section className="hero">
-        <span className="blob b1" /><span className="blob b2" />
-        <span className="illus i1">🏗️</span><span className="illus i2">🧱</span><span className="illus i3">🔧</span>
-        <Stagger className="container">
-          <Item><span className="badge">🏠 Сміла та Черкаська область</span></Item>
-          <Item><h1>Будівництво та ремонт <em>під ключ</em> у Смілі</h1></Item>
-          <Item><p className="lead">Місцевий довідник із будівельних робіт: орієнтовні ціни 2026 року, покрокові гайди та перевірені підрядники Сміли. Розберіться в матеріалах і бюджеті ще до початку робіт.</p></Item>
-          <Item>
-            <div className="hero-actions">
-              <Link href="/tsiny" className="btn lg">Подивитися ціни 2026</Link>
-              <Link href="/poslugy" className="btn ghost lg">Види робіт</Link>
-            </div>
-          </Item>
-          <Item>
-            <div className="stats">
-              <div className="s"><b><Counter value={12} suffix="+" /></b><span>видів робіт</span></div>
-              <div className="s"><b>2026</b><span>актуальні ціни</span></div>
-              <div className="s"><b>1–3 дні</b><span>виїзд на прорахунок</span></div>
-            </div>
-          </Item>
-        </Stagger>
+        <div className="grid-bg" />
+        <span className="orb o1" /><span className="orb o2" />
+        <div className="floaty">
+          <span className="tile" style={{ top: 0, left: 130 }}><Icon name="building" /></span>
+          <span className="tile" style={{ top: 96, left: 235 }}><Icon name="home" /></span>
+          <span className="tile" style={{ top: 190, left: 40 }}><Icon name="droplet" /></span>
+          <span className="tile" style={{ top: 236, left: 200 }}><Icon name="wrench" /></span>
+        </div>
+        <div className="container hero-reveal">
+          <span className="badge"><span className="dot" /> Сміла та Черкаська область</span>
+          <h1>Будівництво та ремонт <em>під ключ</em> у Смілі</h1>
+          <p className="lead">Місцевий довідник із будівельних робіт: орієнтовні ціни 2026 року, покрокові гайди та перевірені підрядники Сміли. Розберіться в матеріалах і бюджеті ще до початку робіт.</p>
+          <div className="hero-actions">
+            <Link href="/tsiny" className="btn lg">Подивитися ціни 2026</Link>
+            <Link href="/poslugy" className="btn glass lg">Види робіт</Link>
+          </div>
+          <div className="stats">
+            <div className="s"><b><Counter value={12} suffix="+" immediate /></b><span>видів робіт</span></div>
+            <div className="s"><b>2026</b><span>актуальні ціни</span></div>
+            <div className="s"><b>1–3 <span style={{ fontSize: 18 }}>дні</span></b><span>виїзд на прорахунок</span></div>
+          </div>
+        </div>
       </section>
+
+      <Marquee />
 
       <section className="block"><div className="container">
         <Reveal>
@@ -86,13 +92,13 @@ export default function Home() {
         </Reveal>
         <Stagger className="services">
           {services.map((s) => (
-            <Item key={s.h} className="svc" hover>
-              <div className="ico">{s.ico}</div>
+            <Tilt key={s.h} className="svc">
+              <div className="ico"><Icon name={s.ico} /></div>
               <h3>{s.h}</h3>
               <p>{s.p}</p>
               <div className="price">від <b>{s.price}</b>{s.unit}</div>
               <Link className="more" href={s.href}>{s.more}</Link>
-            </Item>
+            </Tilt>
           ))}
         </Stagger>
       </div></section>
@@ -105,8 +111,8 @@ export default function Home() {
         </Reveal>
         <Stagger className="grid4">
           {why.map((w) => (
-            <Item key={w.h} className="feat" hover>
-              <div className="ico">{w.ico}</div>
+            <Item key={w.h} className="feat">
+              <div className="ico"><Icon name={w.ico} /></div>
               <h3>{w.h}</h3>
               <p>{w.p}</p>
             </Item>
@@ -128,9 +134,9 @@ export default function Home() {
         </Reveal>
         <Stagger className="posts">
           {posts.map((p) => (
-            <Item key={p.href} hover>
-              <Link className="post" href={p.href} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                <div className="cover">{p.ico}</div>
+            <Item key={p.href} className="post" hover>
+              <Link href={p.href} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <div className="cover"><Icon name={p.ico} /></div>
                 <div className="body">
                   <span className="cat">{p.cat}</span>
                   <h3>{p.h}</h3>
@@ -154,8 +160,8 @@ export default function Home() {
         </Reveal>
         <Stagger className="grid4">
           {jobs.map((j) => (
-            <Item key={j.h} className="feat" hover>
-              <div className="ico">{j.ico}</div>
+            <Item key={j.h} className="feat">
+              <div className="ico"><Icon name={j.ico} /></div>
               <h3>{j.h}</h3>
               <p>{j.p}</p>
             </Item>

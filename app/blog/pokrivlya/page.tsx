@@ -15,7 +15,7 @@ export default function Page() {
     <ArticleShell
       slug="pokrivlya"
       crumb="Вибір покрівлі"
-      cover="🏠"
+      cover="home"
       title="Як вибрати покрівлю для приватного будинку"
       meta="Категорія: Покрівля · 7 хв читання · Оновлено 2026"
       headline="Як вибрати покрівлю для приватного будинку"

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd, { breadcrumb } from '@/components/JsonLd';
+import Icon from '@/components/Icon';
 import { Reveal } from '@/components/Motion';
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function Robota() {
 
       <section className="block" style={{ paddingTop: 6 }}><div className="container">
         <Reveal className="article">
-          <div className="cover-hero">👷</div>
+          <div className="cover-hero"><Icon name="hardhat" /></div>
           <h1>Робота в будівництві у Смілі</h1>
           <p className="meta">Вакансії та підробіток у будівельній сфері · Сміла та район</p>
 
