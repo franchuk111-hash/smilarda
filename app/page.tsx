@@ -6,6 +6,7 @@ import Icon from '@/components/Icon';
 import Marquee from '@/components/Marquee';
 import Magnetic from '@/components/Magnetic';
 import BentoCard from '@/components/BentoCard';
+import BrickWall from '@/components/BrickWall';
 import { Reveal, Stagger, Item, Counter } from '@/components/Motion';
 
 export const metadata: Metadata = {
@@ -134,6 +135,15 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      <section className="block brickband"><div className="container">
+        <Reveal>
+          <p className="kicker center">Надійно</p>
+          <h2 className="title center">Мур, що тримає роки</h2>
+          <p className="sub center">Рівна кладка, якісний розчин і дотримання технології — основа будинку, який не дасть тріщин. Дивіться, як зводиться стіна.</p>
+        </Reveal>
+        <BrickWall />
+      </div></section>
 
       <section className="block soft"><div className="container">
         <Reveal>
