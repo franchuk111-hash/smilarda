@@ -1,0 +1,180 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import JsonLd from '@/components/JsonLd';
+import PartnerBand from '@/components/PartnerBand';
+import { Reveal, Stagger, Item, Counter } from '@/components/Motion';
+
+export const metadata: Metadata = {
+  title: 'Будівництво та ремонт у Смілі — ціни, поради, підрядники 2026 | БудСміла',
+  description:
+    'БудСміла — місцевий портал про будівництво та ремонт у Смілі й Черкаській області. Орієнтовні ціни на роботи, гайди з покрівлі, утеплення, гідроізоляції та вибору перевіреного підрядника.',
+  alternates: { canonical: '/' },
+};
+
+const services = [
+  { ico: '🏠', h: 'Покрівельні роботи', p: 'Монтаж і ремонт покрівлі: металочерепиця, профнастил, бітумна черепиця, водостічні системи та утеплення даху.', price: '690 грн', unit: '/м²', more: 'Як обрати покрівлю →', href: '/blog/pokrivlya' },
+  { ico: '🧱', h: 'Утеплення фасаду', p: 'Мокрий фасад, мінеральна вата чи пінополістирол, декоративна штукатурка. Тепліше житло й менші рахунки за опалення.', price: '540 грн', unit: '/м²', more: 'Матеріали та ціни →', href: '/blog/uteplennya' },
+  { ico: '💧', h: 'Гідроізоляція', p: 'Захист фундаменту, підвалу, покрівлі та санвузлів від вологи. Обмазувальна, рулонна та проникна гідроізоляція.', price: '420 грн', unit: '/м²', more: 'Детальні ціни →', href: '/tsiny' },
+  { ico: '🏗️', h: 'Загальнобудівельні роботи', p: 'Фундаменти, мурування, перегородки, стяжки, реконструкція та прибудови. Повний цикл — від котловану до здачі.', price: '780 грн', unit: '/м²', more: 'Усі роботи →', href: '/poslugy' },
+  { ico: '🛠️', h: 'Ремонт квартир під ключ', p: 'Косметичний і капітальний ремонт: демонтаж, електрика, сантехніка, стіни, стеля, підлога та фінішне оздоблення.', price: '3 200 грн', unit: '/м²', more: 'Етапи ремонту →', href: '/blog/remont' },
+  { ico: '🚰', h: 'Монтаж септиків', p: 'Автономна каналізація для приватного будинку чи дачі: підбір, установка й запуск септика під ваш ґрунт.', price: '18 000 грн', unit: '/шт', more: 'Докладніше →', href: '/poslugy' },
+];
+
+const why = [
+  { ico: '📋', h: 'Кошторис наперед', p: 'Дивіться орієнтовні ціни за м² до старту, щоб реально спланувати бюджет.' },
+  { ico: '✅', h: 'Перевірений підрядник', p: 'Договір, фото робіт і гарантія — ознаки бригади, якій можна довіряти.' },
+  { ico: '🧰', h: 'Правильні матеріали', p: 'Підбір матеріалів під клімат і бюджет економить гроші на роках експлуатації.' },
+  { ico: '📍', h: 'Локально у Смілі', p: 'Місцева бригада швидше виїжджає на об’єкт і знає особливості регіону.' },
+];
+
+const posts = [
+  { href: '/blog/pokrivlya', ico: '🏠', cat: 'Покрівля', h: 'Як вибрати покрівлю для приватного будинку', p: 'Металочерепиця, профнастил чи бітумна черепиця — порівнюємо за ціною, довговічністю та монтажем.', min: 'Читати · 7 хв' },
+  { href: '/blog/uteplennya', ico: '🧱', cat: 'Фасад', h: 'Утеплення фасаду: матеріали та ціни 2026', p: 'Мінвата чи пінопласт, товщина утеплювача та скільки коштує «мокрий фасад» у Смілі.', min: 'Читати · 6 хв' },
+  { href: '/blog/remont', ico: '🛠️', cat: 'Ремонт', h: 'Ремонт квартири під ключ: етапи та бюджет', p: 'Покрокова послідовність робіт — від демонтажу до чистового оздоблення, щоб нічого не забути.', min: 'Читати · 8 хв' },
+];
+
+const jobs = [
+  { ico: '🧱', h: 'Муляр', p: 'Мурування стін і перегородок із газоблоку та цегли.' },
+  { ico: '🏠', h: 'Покрівельник', p: 'Монтаж металочерепиці, профнастилу, гнучкої черепиці.' },
+  { ico: '🎨', h: 'Оздоблювальник', p: 'Штукатурка, шпаклівка, фарбування, укладання плитки.' },
+  { ico: '👷', h: 'Підсобник', p: 'Старт без досвіду з можливістю опанувати ремесло.' },
+];
+
+export default function Home() {
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'БудСміла',
+          alternateName: 'smilarda.org.ua',
+          url: 'https://smilarda.org.ua/',
+          inLanguage: 'uk-UA',
+          description: 'Портал про будівництво та ремонт у Смілі та Черкаській області: ціни, поради, підрядники.',
+        }}
+      />
+
+      <section className="hero">
+        <span className="blob b1" /><span className="blob b2" />
+        <span className="illus i1">🏗️</span><span className="illus i2">🧱</span><span className="illus i3">🔧</span>
+        <Stagger className="container">
+          <Item><span className="badge">🏠 Сміла та Черкаська область</span></Item>
+          <Item><h1>Будівництво та ремонт <em>під ключ</em> у Смілі</h1></Item>
+          <Item><p className="lead">Місцевий довідник із будівельних робіт: орієнтовні ціни 2026 року, покрокові гайди та перевірені підрядники Сміли. Розберіться в матеріалах і бюджеті ще до початку робіт.</p></Item>
+          <Item>
+            <div className="hero-actions">
+              <Link href="/tsiny" className="btn lg">Подивитися ціни 2026</Link>
+              <Link href="/poslugy" className="btn ghost lg">Види робіт</Link>
+            </div>
+          </Item>
+          <Item>
+            <div className="stats">
+              <div className="s"><b><Counter value={12} suffix="+" /></b><span>видів робіт</span></div>
+              <div className="s"><b>2026</b><span>актуальні ціни</span></div>
+              <div className="s"><b>1–3 дні</b><span>виїзд на прорахунок</span></div>
+            </div>
+          </Item>
+        </Stagger>
+      </section>
+
+      <section className="block"><div className="container">
+        <Reveal>
+          <p className="kicker center">Що ми робимо</p>
+          <h2 className="title center">Основні види будівельних робіт</h2>
+          <p className="sub center">Найпоширеніші напрямки, які замовляють мешканці Сміли та району. Ціни орієнтовні — точну вартість рахують після виїзду на об’єкт.</p>
+        </Reveal>
+        <Stagger className="services">
+          {services.map((s) => (
+            <Item key={s.h} className="svc" hover>
+              <div className="ico">{s.ico}</div>
+              <h3>{s.h}</h3>
+              <p>{s.p}</p>
+              <div className="price">від <b>{s.price}</b>{s.unit}</div>
+              <Link className="more" href={s.href}>{s.more}</Link>
+            </Item>
+          ))}
+        </Stagger>
+      </div></section>
+
+      <section className="block soft"><div className="container">
+        <Reveal>
+          <p className="kicker center">Чому це важливо</p>
+          <h2 className="title center">Як не переплатити за будівництво</h2>
+          <p className="sub center">Порахуйте бюджет заздалегідь і перевірте підрядника — тоді ремонт не перетвориться на довгобуд.</p>
+        </Reveal>
+        <Stagger className="grid4">
+          {why.map((w) => (
+            <Item key={w.h} className="feat" hover>
+              <div className="ico">{w.ico}</div>
+              <h3>{w.h}</h3>
+              <p>{w.p}</p>
+            </Item>
+          ))}
+        </Stagger>
+      </div></section>
+
+      <PartnerBand
+        badge="⭐ Рекомендований підрядник"
+        title="V.G.BuildingTeam — будівництво та ремонт у Смілі"
+        text="Місцева бригада, що виконує покрівлю, утеплення фасадів, гідроізоляцію, загальнобудівельні роботи та ремонт під ключ. Безкоштовний виїзд на прорахунок і договір на всі роботи."
+      />
+
+      <section className="block soft"><div className="container">
+        <Reveal>
+          <p className="kicker center">Корисне</p>
+          <h2 className="title center">Останні статті та гайди</h2>
+          <p className="sub center">Розбираємо матеріали, технології та ціни простою мовою.</p>
+        </Reveal>
+        <Stagger className="posts">
+          {posts.map((p) => (
+            <Item key={p.href} hover>
+              <Link className="post" href={p.href} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <div className="cover">{p.ico}</div>
+                <div className="body">
+                  <span className="cat">{p.cat}</span>
+                  <h3>{p.h}</h3>
+                  <p>{p.p}</p>
+                  <span className="meta">{p.min}</span>
+                </div>
+              </Link>
+            </Item>
+          ))}
+        </Stagger>
+        <Reveal style={{ textAlign: 'center', marginTop: 34 }}>
+          <Link href="/blog" className="btn ghost lg">Усі статті блогу</Link>
+        </Reveal>
+      </div></section>
+
+      <section className="block"><div className="container">
+        <Reveal>
+          <p className="kicker center">Робота у Смілі</p>
+          <h2 className="title center">Шукаєте роботу в будівництві?</h2>
+          <p className="sub center">Будівельним бригадам Сміли постійно потрібні мулярі, покрівельники, оздоблювальники та підсобники — зокрема й без досвіду.</p>
+        </Reveal>
+        <Stagger className="grid4">
+          {jobs.map((j) => (
+            <Item key={j.h} className="feat" hover>
+              <div className="ico">{j.ico}</div>
+              <h3>{j.h}</h3>
+              <p>{j.p}</p>
+            </Item>
+          ))}
+        </Stagger>
+        <Reveal style={{ textAlign: 'center', marginTop: 30 }}>
+          <a href="https://robota-smila.com.ua/" target="_blank" rel="noopener" className="btn lg">Вакансії Сміли на robota-smila.com.ua ↗</a>
+          <Link href="/robota" className="btn ghost lg" style={{ marginLeft: 10 }}>Про роботу в будівництві</Link>
+        </Reveal>
+      </div></section>
+
+      <section className="block"><div className="container">
+        <Reveal className="seo-text">
+          <h2>Будівництво та ремонт у Смілі, Черкаська область</h2>
+          <p><b>БудСміла (smilarda.org.ua)</b> — місцевий інформаційний портал про будівельні та ремонтні роботи у місті Сміла та Черкаській області. Тут зібрані орієнтовні ціни 2026 року, покрокові гайди й поради, які допоможуть спланувати бюджет ще до початку робіт.</p>
+          <p>Ми пишемо про <b>покрівельні роботи</b>, <b>утеплення фасадів</b>, <b>гідроізоляцію</b>, загальнобудівельні роботи, <b>ремонт квартир під ключ</b> та монтаж автономної каналізації. Мета порталу — щоб мешканці Сміли розуміли, з чого складається вартість робіт, які матеріали обрати та як не натрапити на несумлінну бригаду.</p>
+          <p>Потрібен виконавець? Ми рекомендуємо перевіреного місцевого підрядника <a href="https://vgb.team/" target="_blank" rel="noopener">V.G.BuildingTeam</a>, який виконує весь спектр робіт у Смілі під ключ із договором і гарантією.</p>
+        </Reveal>
+      </div></section>
+    </>
+  );
+}

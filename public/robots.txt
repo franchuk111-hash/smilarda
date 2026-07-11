@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://smilarda.org.ua/sitemap-index.xml

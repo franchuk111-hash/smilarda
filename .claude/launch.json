@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "smilarda", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 4321 }
+    { "name": "smilarda", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 3000 }
   ]
 }

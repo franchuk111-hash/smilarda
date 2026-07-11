@@ -1,38 +1,26 @@
----
-import Base from '../../layouts/Base.astro';
-const article = {
-  '@context': 'https://schema.org', '@type': 'Article',
-  headline: 'Ремонт квартири під ключ: етапи та бюджет', inLanguage: 'uk-UA',
-  author: { '@type': 'Organization', name: 'БудСміла' },
-  publisher: { '@type': 'Organization', name: 'БудСміла' },
-  mainEntityOfPage: 'https://smilarda.org.ua/blog/remont', datePublished: '2026-06-28',
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import ArticleShell from '@/components/ArticleShell';
+
+export const metadata: Metadata = {
+  title: 'Ремонт квартири під ключ: етапи та бюджет 2026',
+  description:
+    'Покрокова послідовність ремонту квартири під ключ у Смілі: від демонтажу та чорнових робіт до чистового оздоблення. Що враховувати в бюджеті й у якому порядку виконувати роботи.',
+  alternates: { canonical: '/blog/remont' },
+  openGraph: { type: 'article' },
 };
-const bc = {
-  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Головна', item: 'https://smilarda.org.ua/' },
-    { '@type': 'ListItem', position: 2, name: 'Блог', item: 'https://smilarda.org.ua/blog' },
-    { '@type': 'ListItem', position: 3, name: 'Ремонт під ключ', item: 'https://smilarda.org.ua/blog/remont' },
-  ],
-};
----
-<Base
-  title="Ремонт квартири під ключ: етапи та бюджет 2026 | БудСміла"
-  description="Покрокова послідовність ремонту квартири під ключ у Смілі: від демонтажу та чорнових робіт до чистового оздоблення. Що враховувати в бюджеті й у якому порядку виконувати роботи."
-  path="/blog/remont"
-  ogType="article"
->
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify(article)} />
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify(bc)} />
 
-  <div class="container"><div class="crumbs"><a href="/">Головна</a> → <a href="/blog">Блог</a> → Ремонт під ключ</div></div>
-
-  <section class="block" style="padding-top:6px"><div class="container">
-    <article class="article">
-      <div class="cover-hero">🛠️</div>
-      <h1>Ремонт квартири під ключ: етапи та бюджет</h1>
-      <p class="meta">Категорія: Ремонт · 8 хв читання · Оновлено 2026</p>
-
+export default function Page() {
+  return (
+    <ArticleShell
+      slug="remont"
+      crumb="Ремонт під ключ"
+      cover="🛠️"
+      title="Ремонт квартири під ключ: етапи та бюджет"
+      meta="Категорія: Ремонт · 8 хв читання · Оновлено 2026"
+      headline="Ремонт квартири під ключ: етапи та бюджет"
+      datePublished="2026-06-28"
+    >
       <p>«Під ключ» означає, що всі роботи — від демонтажу до фінішного оздоблення — виконує одна бригада за узгодженим кошторисом і графіком. Такий підхід зручний тим, що ви не координуєте окремих майстрів самі. Розберемо, з яких етапів складається ремонт і як не вийти за бюджет.</p>
 
       <h2>Порядок робіт: від «чорнового» до «чистового»</h2>
@@ -46,7 +34,7 @@ const bc = {
         <li><b>Фінал.</b> Встановлення дверей, сантехніки, розеток, вимикачів і світильників.</li>
       </ol>
 
-      <div class="callout">
+      <div className="callout">
         <p><b>Важливо.</b> Усі «мокрі» та приховані роботи (електрика, труби, стяжка) роблять до чистового оздоблення. Переробити їх після поклейки шпалер чи укладання плитки — дорого й довго.</p>
       </div>
 
@@ -61,14 +49,14 @@ const bc = {
         <li>чистові матеріали (плитка, підлога, фарба, двері, сантехніка);</li>
         <li>резерв 10–15% на непередбачені роботи.</li>
       </ul>
-      <p>Орієнтовно у Смілі косметичний ремонт починається <b>від 1 900 грн/м²</b>, капітальний під ключ — <b>від 3 200 грн/м²</b> за роботу. Детальніше — на сторінці <a href="/tsiny">Ціни</a>.</p>
+      <p>Орієнтовно у Смілі косметичний ремонт починається <b>від 1 900 грн/м²</b>, капітальний під ключ — <b>від 3 200 грн/м²</b> за роботу. Детальніше — на сторінці <Link href="/tsiny">Ціни</Link>.</p>
 
       <h2>Висновок</h2>
       <p>Успішний ремонт — це насамперед правильна послідовність і чіткий кошторис. Складіть перелік робіт, закладіть резерв на непередбачене й довірте виконання одній відповідальній бригаді, яка працює за договором.</p>
 
-      <div class="callout">
+      <div className="callout">
         <p>Плануєте ремонт квартири у Смілі? <a href="https://vgb.team/" target="_blank" rel="noopener"><b>V.G.BuildingTeam</b></a> зробить ремонт під ключ із кошторисом і гарантією. 📞 <a href="tel:+380977799513">+38 (097) 779 95 13</a></p>
       </div>
-    </article>
-  </div></section>
-</Base>
+    </ArticleShell>
+  );
+}

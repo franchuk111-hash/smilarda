@@ -1,38 +1,26 @@
----
-import Base from '../../layouts/Base.astro';
-const article = {
-  '@context': 'https://schema.org', '@type': 'Article',
-  headline: 'Як вибрати покрівлю для приватного будинку', inLanguage: 'uk-UA',
-  author: { '@type': 'Organization', name: 'БудСміла' },
-  publisher: { '@type': 'Organization', name: 'БудСміла' },
-  mainEntityOfPage: 'https://smilarda.org.ua/blog/pokrivlya', datePublished: '2026-06-15',
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import ArticleShell from '@/components/ArticleShell';
+
+export const metadata: Metadata = {
+  title: 'Як вибрати покрівлю для приватного будинку — порівняння матеріалів 2026',
+  description:
+    'Металочерепиця, профнастил чи бітумна черепиця — що обрати для даху приватного будинку у Смілі. Порівняння за ціною, довговічністю, вагою та монтажем, поради щодо ухилу та утеплення.',
+  alternates: { canonical: '/blog/pokrivlya' },
+  openGraph: { type: 'article' },
 };
-const bc = {
-  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Головна', item: 'https://smilarda.org.ua/' },
-    { '@type': 'ListItem', position: 2, name: 'Блог', item: 'https://smilarda.org.ua/blog' },
-    { '@type': 'ListItem', position: 3, name: 'Вибір покрівлі', item: 'https://smilarda.org.ua/blog/pokrivlya' },
-  ],
-};
----
-<Base
-  title="Як вибрати покрівлю для приватного будинку — порівняння матеріалів 2026 | БудСміла"
-  description="Металочерепиця, профнастил чи бітумна черепиця — що обрати для даху приватного будинку у Смілі. Порівняння за ціною, довговічністю, вагою та монтажем, поради щодо ухилу та утеплення."
-  path="/blog/pokrivlya"
-  ogType="article"
->
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify(article)} />
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify(bc)} />
 
-  <div class="container"><div class="crumbs"><a href="/">Головна</a> → <a href="/blog">Блог</a> → Вибір покрівлі</div></div>
-
-  <section class="block" style="padding-top:6px"><div class="container">
-    <article class="article">
-      <div class="cover-hero">🏠</div>
-      <h1>Як вибрати покрівлю для приватного будинку</h1>
-      <p class="meta">Категорія: Покрівля · 7 хв читання · Оновлено 2026</p>
-
+export default function Page() {
+  return (
+    <ArticleShell
+      slug="pokrivlya"
+      crumb="Вибір покрівлі"
+      cover="🏠"
+      title="Як вибрати покрівлю для приватного будинку"
+      meta="Категорія: Покрівля · 7 хв читання · Оновлено 2026"
+      headline="Як вибрати покрівлю для приватного будинку"
+      datePublished="2026-06-15"
+    >
       <p>Дах — це захист будинку від дощу, снігу та вітру на десятиліття вперед, тож економити «наосліп» тут ризиковано. У цій статті розберемо, чим відрізняються популярні покрівельні матеріали й на що звертати увагу при виборі, якщо ви будуєте чи ремонтуєте будинок у Смілі та області.</p>
 
       <h2>Від чого відштовхуватися при виборі</h2>
@@ -53,19 +41,19 @@ const bc = {
       <h3>Бітумна (гнучка) черепиця</h3>
       <p>Ідеальна для складних дахів: майже без відходів, безшумна, герметична. Дорожча за металочерепицю й потребує суцільної основи (OSB чи фанера). Строк служби — 25–50 років.</p>
 
-      <div class="callout">
+      <div className="callout">
         <p><b>Порада.</b> Не менш важливий за саме покриття — правильний «пиріг» покрівлі: гідроізоляція, вентзазор, утеплювач і пароізоляція. Помилки на цьому етапі призводять до конденсату, вологи й псування кроков, навіть якщо покриття дороге.</p>
       </div>
 
       <h2>Скільки коштують покрівельні роботи у Смілі</h2>
-      <p>Орієнтовна вартість монтажу покрівлі у Смілі — <b>від 690 грн/м²</b> за роботу (без матеріалів). Точна сума залежить від типу покриття, складності даху, потреби в утепленні та висоти будівлі. Актуальні розцінки на інші роботи є на сторінці <a href="/tsiny">Ціни</a>.</p>
+      <p>Орієнтовна вартість монтажу покрівлі у Смілі — <b>від 690 грн/м²</b> за роботу (без матеріалів). Точна сума залежить від типу покриття, складності даху, потреби в утепленні та висоти будівлі. Актуальні розцінки на інші роботи є на сторінці <Link href="/tsiny">Ціни</Link>.</p>
 
       <h2>Висновок</h2>
       <p>Для більшості приватних будинків у Смілі оптимальний баланс ціни та якості дає металочерепиця; для складних дахів — гнучка черепиця; для господарських споруд — профнастил. Головне — довірити монтаж бригаді, яка правильно виконає всю покрівельну систему, а не лише вкладе покриття.</p>
 
-      <div class="callout">
+      <div className="callout">
         <p>Плануєте покрівлю у Смілі? Місцева бригада <a href="https://vgb.team/" target="_blank" rel="noopener"><b>V.G.BuildingTeam</b></a> виконає монтаж під ключ із гарантією. 📞 <a href="tel:+380977799513">+38 (097) 779 95 13</a></p>
       </div>
-    </article>
-  </div></section>
-</Base>
+    </ArticleShell>
+  );
+}
