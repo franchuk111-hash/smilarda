@@ -4,7 +4,9 @@ import JsonLd from '@/components/JsonLd';
 import PartnerBand from '@/components/PartnerBand';
 import Icon from '@/components/Icon';
 import Marquee from '@/components/Marquee';
-import { Reveal, Stagger, Item, Tilt, Counter } from '@/components/Motion';
+import Magnetic from '@/components/Magnetic';
+import BentoCard from '@/components/BentoCard';
+import { Reveal, Stagger, Item, Counter } from '@/components/Motion';
 
 export const metadata: Metadata = {
   title: 'Будівництво та ремонт у Смілі — ціни, поради, підрядники 2026 | БудСміла',
@@ -42,6 +44,14 @@ const jobs = [
   { ico: 'hardhat', h: 'Підсобник', p: 'Старт без досвіду з можливістю опанувати ремесло.' },
 ];
 
+const steps = [
+  { n: '01', h: 'Заявка', p: 'Ви залишаєте запит — телефоном або через vgb.team.' },
+  { n: '02', h: 'Виїзд і замір', p: 'Майстер безкоштовно виїжджає на об’єкт у Смілі.' },
+  { n: '03', h: 'Кошторис', p: 'Отримуєте детальний прозорий кошторис і графік.' },
+  { n: '04', h: 'Роботи', p: 'Бригада виконує роботи за договором із фотозвітом.' },
+  { n: '05', h: 'Здача під ключ', p: 'Приймаєте готовий об’єкт із гарантією на роботи.' },
+];
+
 export default function Home() {
   return (
     <>
@@ -71,8 +81,8 @@ export default function Home() {
           <h1>Будівництво та ремонт <em>під ключ</em> у Смілі</h1>
           <p className="lead">Місцевий довідник із будівельних робіт: орієнтовні ціни 2026 року, покрокові гайди та перевірені підрядники Сміли. Розберіться в матеріалах і бюджеті ще до початку робіт.</p>
           <div className="hero-actions">
-            <Link href="/tsiny" className="btn lg">Подивитися ціни 2026</Link>
-            <Link href="/poslugy" className="btn glass lg">Види робіт</Link>
+            <Magnetic><Link href="/tsiny" className="btn lg">Подивитися ціни 2026</Link></Magnetic>
+            <Magnetic><Link href="/poslugy" className="btn glass lg">Види робіт</Link></Magnetic>
           </div>
           <div className="stats">
             <div className="s"><b><Counter value={12} suffix="+" immediate /></b><span>видів робіт</span></div>
@@ -90,18 +100,40 @@ export default function Home() {
           <h2 className="title center">Основні види будівельних робіт</h2>
           <p className="sub center">Найпоширеніші напрямки, які замовляють мешканці Сміли та району. Ціни орієнтовні — точну вартість рахують після виїзду на об’єкт.</p>
         </Reveal>
-        <Stagger className="services">
+        <Stagger className="bento">
+          <BentoCard className="big">
+            <div>
+              <p className="kicker">Повний цикл</p>
+              <h3>Будівництво та ремонт під ключ у Смілі</h3>
+              <p>Від фундаменту до чистового оздоблення — одна бригада, договір і гарантія на всі роботи.</p>
+            </div>
+            <Link href="/poslugy" className="btn lg">Усі послуги →</Link>
+          </BentoCard>
           {services.map((s) => (
-            <Tilt key={s.h} className="svc">
+            <BentoCard key={s.h}>
               <div className="ico"><Icon name={s.ico} /></div>
               <h3>{s.h}</h3>
-              <p>{s.p}</p>
               <div className="price">від <b>{s.price}</b>{s.unit}</div>
               <Link className="more" href={s.href}>{s.more}</Link>
-            </Tilt>
+            </BentoCard>
           ))}
+          <BentoCard className="wide">
+            <div>
+              <p className="kicker">Безкоштовно</p>
+              <h3 style={{ margin: 0 }}>Виїзд майстра на прорахунок</h3>
+            </div>
+            <a href="tel:+380977799513" className="btn ghost lg">📞 +38 (097) 779 95 13</a>
+          </BentoCard>
         </Stagger>
       </div></section>
+
+      <div className="kinetic" aria-hidden="true">
+        <div className="ktrack">
+          {['Будуємо', 'Ремонтуємо', 'Утеплюємо', 'Будуємо', 'Ремонтуємо', 'Утеплюємо'].map((w, i) => (
+            <span className={`k${i % 3 === 1 ? ' fill' : ''}`} key={i}>{w} •</span>
+          ))}
+        </div>
+      </div>
 
       <section className="block soft"><div className="container">
         <Reveal>
@@ -115,6 +147,23 @@ export default function Home() {
               <div className="ico"><Icon name={w.ico} /></div>
               <h3>{w.h}</h3>
               <p>{w.p}</p>
+            </Item>
+          ))}
+        </Stagger>
+      </div></section>
+
+      <section className="block"><div className="container">
+        <Reveal>
+          <p className="kicker center">Як ми працюємо</p>
+          <h2 className="title center">Від заявки до готового об’єкта</h2>
+          <p className="sub center">Прозорий процес у п’ять кроків — ви завжди розумієте, що відбувається й скільки це коштує.</p>
+        </Reveal>
+        <Stagger className="steps">
+          {steps.map((st) => (
+            <Item key={st.n} className="stepc">
+              <div className="n">{st.n}</div>
+              <h3>{st.h}</h3>
+              <p>{st.p}</p>
             </Item>
           ))}
         </Stagger>
