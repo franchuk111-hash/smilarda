@@ -1,15 +1,16 @@
 'use client';
 
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 export default function Preloader() {
+  const reduced = useReducedMotion();
   const [done, setDone] = useState(false);
   const [pct, setPct] = useState(0);
 
   useEffect(() => {
-    // Show once per browser session; skip on subsequent page navigations.
-    if (sessionStorage.getItem('pl-seen')) {
+    // Skip the intro for reduced-motion users or after it's been seen this session.
+    if (reduced || sessionStorage.getItem('pl-seen')) {
       setDone(true);
       return;
     }
@@ -24,7 +25,7 @@ export default function Preloader() {
       }
     }, 110);
     return () => clearInterval(id);
-  }, []);
+  }, [reduced]);
 
   return (
     <AnimatePresence>

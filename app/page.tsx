@@ -8,6 +8,7 @@ import Magnetic from '@/components/Magnetic';
 import BentoCard from '@/components/BentoCard';
 import BrickWall from '@/components/BrickWall';
 import PinnedGallery from '@/components/PinnedGallery';
+import WorkImage from '@/components/WorkImage';
 import { Reveal, Stagger, Item, Counter } from '@/components/Motion';
 
 export const metadata: Metadata = {
@@ -47,12 +48,12 @@ const jobs = [
 ];
 
 const works = [
-  { n: '01', ico: 'home', type: 'Будівництво під ключ', h: 'Приватний будинок', area: '120 м² · Сміла' },
-  { n: '02', ico: 'wrench', type: 'Капітальний ремонт', h: 'Квартира під ключ', area: '65 м² · вул. Незалежності' },
-  { n: '03', ico: 'brick', type: 'Мокрий фасад', h: 'Утеплення котеджу', area: '180 м² · Сміла' },
-  { n: '04', ico: 'home', type: 'Покрівля', h: 'Металочерепиця', area: '140 м² · район' },
-  { n: '05', ico: 'building', type: 'Реконструкція', h: 'Мансардний дах', area: '90 м² · Сміла' },
-  { n: '06', ico: 'tank', type: 'Автономна каналізація', h: 'Монтаж септика', area: 'приватний двір' },
+  { n: '01', scene: 'house', type: 'Будівництво під ключ', h: 'Приватний будинок', area: '120 м² · Сміла' },
+  { n: '02', scene: 'interior', type: 'Капітальний ремонт', h: 'Квартира під ключ', area: '65 м² · вул. Незалежності' },
+  { n: '03', scene: 'facade', type: 'Мокрий фасад', h: 'Утеплення котеджу', area: '180 м² · Сміла' },
+  { n: '04', scene: 'roof', type: 'Покрівля', h: 'Металочерепиця', area: '140 м² · район' },
+  { n: '05', scene: 'mansard', type: 'Реконструкція', h: 'Мансардний дах', area: '90 м² · Сміла' },
+  { n: '06', scene: 'septic', type: 'Автономна каналізація', h: 'Монтаж септика', area: 'приватний двір' },
 ];
 
 const steps = [
@@ -180,7 +181,7 @@ export default function Home() {
       >
         {works.map((w) => (
           <div key={w.n} className="work">
-            <div className="wbg"><Icon name={w.ico} /></div>
+            <div className="wbg"><WorkImage scene={w.scene} /></div>
             <div className="wn">{w.n}</div>
             <div className="wcap">
               <div className="wtype">{w.type}</div>

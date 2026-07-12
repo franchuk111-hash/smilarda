@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView, useMotionValue, useScroll, useSpring, useTransform, type Variants } from 'motion/react';
+import { motion, useInView, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, type Variants } from 'motion/react';
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from 'react';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -19,6 +19,8 @@ type El = { className?: string; style?: CSSProperties; id?: string; children: Re
 
 /** Fade + slide-up once the block scrolls into view. */
 export function Reveal({ className, style, id, children, delay = 0 }: El & { delay?: number }) {
+  const reduced = useReducedMotion();
+  if (reduced) return <div className={className} style={style} id={id}>{children}</div>;
   return (
     <motion.div
       className={className}
@@ -39,6 +41,8 @@ export function Reveal({ className, style, id, children, delay = 0 }: El & { del
 
 /** Staggered container — pair with <Item>. Set `mount` for above-the-fold (plays on load). */
 export function Stagger({ className, style, id, children, mount = false }: El & { mount?: boolean }) {
+  const reduced = useReducedMotion();
+  if (reduced) return <div className={className} style={style} id={id}>{children}</div>;
   const trigger = mount
     ? { animate: 'show' as const }
     : { whileInView: 'show' as const, viewport: { once: true, margin: '-80px' } };
@@ -51,6 +55,8 @@ export function Stagger({ className, style, id, children, mount = false }: El & 
 
 /** A single staggered child. Renders as the element itself (pass the card className). */
 export function Item({ className, style, id, children, hover = false }: El & { hover?: boolean }) {
+  const reduced = useReducedMotion();
+  if (reduced) return <div className={className} style={style} id={id}>{children}</div>;
   return (
     <motion.div
       className={className}
@@ -73,6 +79,7 @@ export function ScrollProgress() {
 
 /** Card that tilts in 3D toward the cursor. Pass the card className. */
 export function Tilt({ className, style, id, children }: El & { id?: string }) {
+  const reduced = useReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rx = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), { stiffness: 220, damping: 18 });
@@ -88,6 +95,7 @@ export function Tilt({ className, style, id, children }: El & { id?: string }) {
     y.set(0);
   }
 
+  if (reduced) return <div className={className} id={id} style={style}>{children}</div>;
   return (
     <motion.div
       className={className}
@@ -104,6 +112,7 @@ export function Tilt({ className, style, id, children }: El & { id?: string }) {
 
 /** Count-up number that animates when scrolled into view. */
 export function Counter({ value, suffix = '', prefix = '', immediate = false }: { value: number; suffix?: string; prefix?: string; immediate?: boolean }) {
+  const reduced = useReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
   const mv = useMotionValue(0);
@@ -120,7 +129,7 @@ export function Counter({ value, suffix = '', prefix = '', immediate = false }: 
   return (
     <span ref={ref}>
       {prefix}
-      {display}
+      {reduced ? value : display}
       {suffix}
     </span>
   );

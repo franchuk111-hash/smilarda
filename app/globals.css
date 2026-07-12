@@ -250,6 +250,14 @@ body.has-cursor a,body.has-cursor button,body.has-cursor .cell,body.has-cursor .
 .pintrack .work{flex:0 0 clamp(280px,32vw,420px);height:min(58vh,520px);aspect-ratio:auto}
 .pinhint{display:inline-flex;align-items:center;gap:8px;margin:0 auto;padding:8px 16px;border-radius:30px;border:1px solid var(--border-strong);background:var(--card);color:var(--muted);font-size:13px;font-weight:600}
 @media(max-width:640px){.pintrack .work{flex-basis:78vw;height:64vh}}
+.pinwrap--static{padding:74px 0}
+.pinwrap--static .pinhead{margin-bottom:28px}
+.pintrack--scroll{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px}
+.pintrack--scroll .work{scroll-snap-align:start;height:min(52vh,460px)}
+
+/* Keyboard focus visibility (a11y) */
+:where(a,button,[role="button"],input,select,textarea,.theme-toggle,.burger,.work,.cell):focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
+.btn:focus-visible{outline-offset:4px}
 
 /* ---------- Brick wall click-to-hear ---------- */
 .brickwall{cursor:pointer}

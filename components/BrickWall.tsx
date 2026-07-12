@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, type Variants } from 'motion/react';
+import { motion, useReducedMotion, type Variants } from 'motion/react';
 import { useRef } from 'react';
 
 // One synthesized brick "clack" (noise burst + low thump) via Web Audio.
@@ -59,6 +59,7 @@ const dustV: Variants = {
 
 /** A masonry wall that lays itself brick-by-brick (bottom rows first), kicking up dust on impact. */
 export default function BrickWall({ rows = 7, cols = 11 }: { rows?: number; cols?: number }) {
+  const reduced = useReducedMotion();
   const actx = useRef<AudioContext | null>(null);
 
   function playLaying() {
@@ -75,8 +76,8 @@ export default function BrickWall({ rows = 7, cols = 11 }: { rows?: number; cols
   return (
     <motion.div
       className="brickwall"
-      initial="hidden"
-      whileInView="show"
+      initial={reduced ? undefined : 'hidden'}
+      whileInView={reduced ? undefined : 'show'}
       viewport={{ once: true, margin: '-80px' }}
       onClick={playLaying}
       role="button"
@@ -99,8 +100,8 @@ export default function BrickWall({ rows = 7, cols = 11 }: { rows?: number; cols
               const d = fromBottom * 0.09 + c * 0.02;
               return (
                 <span className="bcell" key={c}>
-                  <motion.span className="brick" variants={brickV} custom={d} />
-                  <motion.span className="dust" variants={dustV} custom={d} />
+                  <motion.span className="brick" variants={reduced ? undefined : brickV} custom={d} />
+                  {!reduced && <motion.span className="dust" variants={dustV} custom={d} />}
                 </span>
               );
             })}

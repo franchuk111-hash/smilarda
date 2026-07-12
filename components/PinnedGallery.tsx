@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 /** Vertical scroll drives a horizontal, pinned track (award-site scroll-jack). */
@@ -21,10 +21,12 @@ export default function PinnedGallery({
   const maxRef = useRef(0);
   const [height, setHeight] = useState('300vh');
 
+  const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: wrap, offset: ['start start', 'end end'] });
   const x = useTransform(scrollYProgress, (v) => -(v * maxRef.current));
 
   useEffect(() => {
+    if (reduced) return;
     const calc = () => {
       if (!track.current || !sticky.current) return;
       const max = Math.max(0, track.current.scrollWidth - sticky.current.clientWidth);
@@ -38,7 +40,21 @@ export default function PinnedGallery({
       clearTimeout(t);
       window.removeEventListener('resize', calc);
     };
-  }, []);
+  }, [reduced]);
+
+  // Reduced motion: no scroll-jack — a plain, swipeable horizontal row.
+  if (reduced) {
+    return (
+      <section className="pinwrap pinwrap--static">
+        <div className="pinhead">
+          <p className="kicker">{kicker}</p>
+          <h2 className="title" style={{ marginBottom: 8 }}>{title}</h2>
+          <p className="sub" style={{ margin: 0 }}>{sub}</p>
+        </div>
+        <div className="pintrack pintrack--scroll">{children}</div>
+      </section>
+    );
+  }
 
   return (
     <section ref={wrap} className="pinwrap" style={{ height }}>
