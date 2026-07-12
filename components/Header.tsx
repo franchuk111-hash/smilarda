@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import Icon from './Icon';
+import ThemeToggle from './ThemeToggle';
 
 const links = [
   { href: '/', label: 'Головна' },
@@ -48,6 +49,7 @@ export default function Header() {
             );
           })}
         </nav>
+        <ThemeToggle />
         <a href="https://vgb.team/" target="_blank" rel="noopener" className="btn cta">Замовити прорахунок</a>
         <button className="burger" aria-label="Меню" onClick={() => setOpen((v) => !v)}>☰</button>
       </div>

@@ -20,6 +20,28 @@
   --glow:0 0 60px rgba(249,115,22,.45);
   --radius:18px;
 }
+:root[data-theme="dark"]{
+  --bg:#0b0d12;
+  --soft:#12141c;
+  --soft2:#181b26;
+  --card:#141620;
+  --ink:#ecebe8;
+  --ink2:#ffffff;
+  --muted:#9aa1ad;
+  --muted2:#6a7280;
+  --border:#242835;
+  --border-strong:#343949;
+  --shadow:0 8px 30px rgba(0,0,0,.5);
+  --shadow-hover:0 20px 54px rgba(0,0,0,.6);
+}
+:root[data-theme="dark"] header.site{background:rgba(11,13,18,.72);border-bottom-color:var(--border)}
+:root[data-theme="dark"] .nav-links a:hover{background:var(--soft2)}
+:root[data-theme="dark"] .nav-links a.active{background:rgba(249,115,22,.18)}
+:root[data-theme="dark"] .btn.ghost{background:transparent;border-color:var(--border-strong);color:var(--accent-l)}
+:root[data-theme="dark"] .btn.ghost:hover{background:var(--soft2)}
+:root[data-theme="dark"] .grain{opacity:.028}
+:root[data-theme="dark"] .cell.wide{background:var(--soft2)}
+:root[data-theme="dark"] .ptable tbody tr:hover td{background:#1b1e29}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -214,6 +236,25 @@ body.has-cursor a,body.has-cursor button,body.has-cursor .cell,body.has-cursor .
 .work .warea{color:rgba(255,255,255,.6);font-size:14px}
 @media(max-width:900px){.works{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.works{grid-template-columns:1fr}}
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle{width:42px;height:42px;flex:0 0 auto;border-radius:11px;border:1px solid var(--border-strong);background:var(--card);color:var(--ink2);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.15s}
+.theme-toggle:hover{border-color:var(--accent-l);color:var(--accent-d)}
+.theme-toggle svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Pinned horizontal gallery ---------- */
+.pinwrap{position:relative}
+.pinsticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;gap:28px}
+.pinhead{width:100%;max-width:1200px;margin:0 auto;padding:0 5vw}
+.pintrack{display:flex;gap:24px;padding:0 5vw;will-change:transform}
+.pintrack .work{flex:0 0 clamp(280px,32vw,420px);height:min(58vh,520px);aspect-ratio:auto}
+.pinhint{display:inline-flex;align-items:center;gap:8px;margin:0 auto;padding:8px 16px;border-radius:30px;border:1px solid var(--border-strong);background:var(--card);color:var(--muted);font-size:13px;font-weight:600}
+@media(max-width:640px){.pintrack .work{flex-basis:78vw;height:64vh}}
+
+/* ---------- Brick wall click-to-hear ---------- */
+.brickwall{cursor:pointer}
+.brick-hint{display:flex;justify-content:center;margin-top:26px}
+.brick-hint span{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.7);font-size:14px;font-weight:600;backdrop-filter:blur(6px)}
 
 /* ---------- Process stepper (2026 trend) ---------- */
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}

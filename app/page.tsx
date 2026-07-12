@@ -7,6 +7,7 @@ import Marquee from '@/components/Marquee';
 import Magnetic from '@/components/Magnetic';
 import BentoCard from '@/components/BentoCard';
 import BrickWall from '@/components/BrickWall';
+import PinnedGallery from '@/components/PinnedGallery';
 import { Reveal, Stagger, Item, Counter } from '@/components/Motion';
 
 export const metadata: Metadata = {
@@ -152,6 +153,7 @@ export default function Home() {
           <p className="sub center">Рівна кладка, якісний розчин і дотримання технології — основа будинку, який не дасть тріщин. Дивіться, як зводиться стіна.</p>
         </Reveal>
         <BrickWall />
+        <div className="brick-hint"><span>🔊 Клікніть на стіну — почуйте, як лягає цегла</span></div>
       </div></section>
 
       <section className="block soft"><div className="container">
@@ -171,26 +173,23 @@ export default function Home() {
         </Stagger>
       </div></section>
 
-      <section className="block soft"><div className="container">
-        <Reveal>
-          <p className="kicker center">Портфоліо</p>
-          <h2 className="title center">Наші роботи у Смілі</h2>
-          <p className="sub center">Реальні об’єкти, зведені та відремонтовані місцевою бригадою у Смілі та районі.</p>
-        </Reveal>
-        <Stagger className="works">
-          {works.map((w) => (
-            <Item key={w.n} className="work">
-              <div className="wbg"><Icon name={w.ico} /></div>
-              <div className="wn">{w.n}</div>
-              <div className="wcap">
-                <div className="wtype">{w.type}</div>
-                <h3>{w.h}</h3>
-                <div className="warea">{w.area}</div>
-              </div>
-            </Item>
-          ))}
-        </Stagger>
-      </div></section>
+      <PinnedGallery
+        kicker="Портфоліо"
+        title="Наші роботи у Смілі"
+        sub="Гортайте — реальні об’єкти, зведені та відремонтовані місцевою бригадою у Смілі та районі."
+      >
+        {works.map((w) => (
+          <div key={w.n} className="work">
+            <div className="wbg"><Icon name={w.ico} /></div>
+            <div className="wn">{w.n}</div>
+            <div className="wcap">
+              <div className="wtype">{w.type}</div>
+              <h3>{w.h}</h3>
+              <div className="warea">{w.area}</div>
+            </div>
+          </div>
+        ))}
+      </PinnedGallery>
 
       <section className="block"><div className="container">
         <Reveal>
