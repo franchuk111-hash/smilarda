@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ScrollProgress } from '@/components/Motion';
 import Grain from '@/components/Grain';
+import Preloader from '@/components/Preloader';
+import Cursor from '@/components/Cursor';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://smilarda.org.ua'),
@@ -21,6 +23,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="uk">
       <body>
+        <Preloader />
+        <Cursor />
         <Grain />
         <ScrollProgress />
         <Header />

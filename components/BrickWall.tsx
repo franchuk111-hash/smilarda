@@ -12,14 +12,14 @@ const brickV: Variants = {
   }),
 };
 
-// Dust puff + sparks kicked up the moment a brick lands.
+// Dense dust cloud + sparks kicked up the moment a brick lands.
 const dustV: Variants = {
-  hidden: { opacity: 0, scale: 0.4, y: 0 },
+  hidden: { opacity: 0, scale: 0.35, y: 0 },
   show: (d: number) => ({
-    opacity: [0, 0.9, 0],
-    scale: [0.4, 1.3, 1.75],
-    y: [0, -9, -18],
-    transition: { duration: 0.55, delay: d + 0.42, times: [0, 0.35, 1], ease: 'easeOut' },
+    opacity: [0, 1, 0],
+    scale: [0.35, 1.4, 2.1],
+    y: [0, -14, -32],
+    transition: { duration: 0.75, delay: d + 0.38, times: [0, 0.28, 1], ease: 'easeOut' },
   }),
 };
 

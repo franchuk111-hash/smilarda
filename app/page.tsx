@@ -45,6 +45,15 @@ const jobs = [
   { ico: 'hardhat', h: 'Підсобник', p: 'Старт без досвіду з можливістю опанувати ремесло.' },
 ];
 
+const works = [
+  { n: '01', ico: 'home', type: 'Будівництво під ключ', h: 'Приватний будинок', area: '120 м² · Сміла' },
+  { n: '02', ico: 'wrench', type: 'Капітальний ремонт', h: 'Квартира під ключ', area: '65 м² · вул. Незалежності' },
+  { n: '03', ico: 'brick', type: 'Мокрий фасад', h: 'Утеплення котеджу', area: '180 м² · Сміла' },
+  { n: '04', ico: 'home', type: 'Покрівля', h: 'Металочерепиця', area: '140 м² · район' },
+  { n: '05', ico: 'building', type: 'Реконструкція', h: 'Мансардний дах', area: '90 м² · Сміла' },
+  { n: '06', ico: 'tank', type: 'Автономна каналізація', h: 'Монтаж септика', area: 'приватний двір' },
+];
+
 const steps = [
   { n: '01', h: 'Заявка', p: 'Ви залишаєте запит — телефоном або через vgb.team.' },
   { n: '02', h: 'Виїзд і замір', p: 'Майстер безкоштовно виїжджає на об’єкт у Смілі.' },
@@ -157,6 +166,27 @@ export default function Home() {
               <div className="ico"><Icon name={w.ico} /></div>
               <h3>{w.h}</h3>
               <p>{w.p}</p>
+            </Item>
+          ))}
+        </Stagger>
+      </div></section>
+
+      <section className="block soft"><div className="container">
+        <Reveal>
+          <p className="kicker center">Портфоліо</p>
+          <h2 className="title center">Наші роботи у Смілі</h2>
+          <p className="sub center">Реальні об’єкти, зведені та відремонтовані місцевою бригадою у Смілі та районі.</p>
+        </Reveal>
+        <Stagger className="works">
+          {works.map((w) => (
+            <Item key={w.n} className="work">
+              <div className="wbg"><Icon name={w.ico} /></div>
+              <div className="wn">{w.n}</div>
+              <div className="wcap">
+                <div className="wtype">{w.type}</div>
+                <h3>{w.h}</h3>
+                <div className="warea">{w.area}</div>
+              </div>
             </Item>
           ))}
         </Stagger>

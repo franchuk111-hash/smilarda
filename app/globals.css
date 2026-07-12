@@ -163,14 +163,57 @@ header.site.scrolled .nav{height:64px}
 .brow .bcell:nth-child(3n) .brick{background:linear-gradient(135deg,#f97316,#9a3412)}
 .brow .bcell:nth-child(4n) .brick{background:linear-gradient(135deg,#fdba74,#ea580c)}
 .brow .bcell:nth-child(5n) .brick{filter:brightness(.92)}
-.dust{position:absolute;left:50%;bottom:-6px;width:70px;height:30px;transform:translateX(-50%);pointer-events:none;will-change:transform,opacity;background:
-  radial-gradient(6px 6px at 28% 55%,rgba(253,186,116,.95),transparent 62%),
-  radial-gradient(5px 5px at 68% 42%,rgba(249,115,22,.95),transparent 62%),
-  radial-gradient(4px 4px at 48% 68%,rgba(255,255,255,.85),transparent 62%),
-  radial-gradient(5px 5px at 82% 60%,rgba(255,224,178,.9),transparent 62%),
-  radial-gradient(ellipse 62% 62% at 50% 65%,rgba(206,178,146,.5),transparent 72%);
-  filter:blur(.4px)}
-@media(max-width:640px){.brick{width:52px;height:24px;border-radius:3px}.dust{width:48px;height:22px}.brow{gap:4px;margin-bottom:4px}.brow[style]{transform:translateX(-28px)!important}}
+.dust{position:absolute;left:50%;bottom:-8px;width:104px;height:46px;transform:translateX(-50%);pointer-events:none;will-change:transform,opacity;filter:blur(.3px);background:
+  radial-gradient(3px 3px at 16% 52%,rgba(255,237,213,.95),transparent 60%),
+  radial-gradient(3px 3px at 30% 64%,rgba(253,186,116,.95),transparent 60%),
+  radial-gradient(2px 2px at 42% 40%,rgba(249,115,22,1),transparent 60%),
+  radial-gradient(3px 3px at 52% 66%,rgba(255,255,255,.92),transparent 60%),
+  radial-gradient(2px 2px at 62% 46%,rgba(251,146,60,.95),transparent 60%),
+  radial-gradient(3px 3px at 74% 60%,rgba(255,224,178,.92),transparent 60%),
+  radial-gradient(2px 2px at 86% 44%,rgba(249,115,22,.95),transparent 60%),
+  radial-gradient(2px 2px at 92% 58%,rgba(255,255,255,.85),transparent 60%),
+  radial-gradient(ellipse 72% 60% at 50% 58%,rgba(210,182,150,.55),transparent 72%),
+  radial-gradient(ellipse 44% 30% at 50% 84%,rgba(0,0,0,.4),transparent 75%)}
+@media(max-width:640px){.brick{width:52px;height:24px;border-radius:3px}.dust{width:66px;height:32px}.brow{gap:4px;margin-bottom:4px}.brow[style]{transform:translateX(-28px)!important}}
+
+/* ---------- Preloader intro ---------- */
+.preloader{position:fixed;inset:0;z-index:300;background:var(--ink-hero);display:flex;align-items:center;justify-content:center;color:#fff}
+.preloader::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(249,115,22,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,.08) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,#000 30%,transparent 100%)}
+.pl-inner{position:relative;width:min(420px,78vw);text-align:center}
+.pl-logo{display:inline-flex;align-items:center;gap:12px;font-weight:800;font-size:clamp(24px,4vw,30px);letter-spacing:-.02em;margin-bottom:26px}
+.pl-logo .mark{width:48px;height:48px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(249,115,22,.45)}
+.pl-logo .mark svg{width:27px;height:27px;stroke:#fff;fill:none;stroke-width:2}
+.pl-logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pl-bar{height:3px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}
+.pl-bar span{display:block;height:100%;background:var(--grad);transform-origin:0 50%}
+.pl-pct{margin-top:14px;font-size:14px;color:rgba(255,255,255,.55);font-variant-numeric:tabular-nums;letter-spacing:.05em}
+
+/* ---------- Custom cursor ---------- */
+.cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--accent);z-index:400;pointer-events:none;mix-blend-mode:difference}
+.cursor-ring{position:fixed;top:0;left:0;width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid rgba(249,115,22,.55);border-radius:50%;z-index:400;pointer-events:none;transition:width .22s,height .22s,margin .22s,background .22s,border-color .22s}
+.cursor-ring.on{width:66px;height:66px;margin:-33px 0 0 -33px;background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.25)}
+body.has-cursor{cursor:none}
+body.has-cursor a,body.has-cursor button,body.has-cursor .cell,body.has-cursor .work,body.has-cursor .burger{cursor:none}
+@media(hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+
+/* ---------- Portfolio / works ---------- */
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.work{position:relative;overflow:hidden;border-radius:var(--radius);aspect-ratio:4/3;background:var(--ink-hero);box-shadow:var(--shadow);isolation:isolate}
+.work .wbg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.work:hover .wbg{transform:scale(1.07)}
+.work .wbg svg{width:66px;height:66px;stroke:rgba(255,255,255,.22);fill:none;stroke-width:1.3}
+.work:nth-child(3n+1) .wbg{background:radial-gradient(circle at 70% 20%,rgba(249,115,22,.22),transparent 55%),linear-gradient(135deg,#1c1611,#0b0d12)}
+.work:nth-child(3n+2) .wbg{background:radial-gradient(circle at 30% 30%,rgba(249,115,22,.18),transparent 55%),linear-gradient(135deg,#14100c,#0b0d12)}
+.work:nth-child(3n) .wbg{background:radial-gradient(circle at 50% 80%,rgba(194,65,12,.28),transparent 55%),linear-gradient(135deg,#1a130d,#0b0d12)}
+.work .wn{position:absolute;top:16px;left:20px;z-index:2;font-size:42px;font-weight:800;color:rgba(255,255,255,.16);letter-spacing:-.03em}
+.work::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 42%,rgba(9,10,13,.9))}
+.work .wcap{position:absolute;left:22px;right:22px;bottom:20px;z-index:3;transform:translateY(10px);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.work:hover .wcap{transform:none}
+.work .wtype{color:var(--accent-l);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.work h3{color:#fff;margin:6px 0 4px;font-size:19px;letter-spacing:-.01em}
+.work .warea{color:rgba(255,255,255,.6);font-size:14px}
+@media(max-width:900px){.works{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.works{grid-template-columns:1fr}}
 
 /* ---------- Process stepper (2026 trend) ---------- */
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
