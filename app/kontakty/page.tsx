@@ -11,6 +11,9 @@ export const metadata: Metadata = {
 };
 
 const GBP = 'https://share.google/m43A4eiZ2pBRadfph';
+const MAP_SRC = `https://maps.google.com/maps?q=${encodeURIComponent(
+  'бульвар Бобринського, 4, Сміла, Черкаська область',
+)}&hl=uk&z=16&output=embed`;
 
 export default function Kontakty() {
   return (
@@ -45,6 +48,16 @@ export default function Kontakty() {
             <div className="contact-row"><span className="ico">📚</span><div><b>Гайди</b><span><Link href="/blog/pokrivlya">Покрівля</Link> · <Link href="/blog/uteplennya">Фасад</Link> · <Link href="/blog/remont">Ремонт</Link></span></div></div>
           </Item>
         </Stagger>
+
+        <Reveal className="map-embed">
+          <iframe
+            title="Сміла Буд на карті — бульвар Бобринського, 4, Сміла"
+            src={MAP_SRC}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </Reveal>
       </div></section>
     </>
   );
