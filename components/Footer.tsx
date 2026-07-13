@@ -7,7 +7,9 @@ export default function Footer() {
         <div className="fcols">
           <div>
             <h4>Сміла Буд</h4>
-            <p>Інформаційний портал про будівництво та ремонт у Смілі й Черкаській області: гайди, орієнтовні ціни, поради з вибору підрядника.</p>
+            <p>Будівництво та ремонт під ключ у Смілі й Черкаській області. Покрівля, фасади, гідроізоляція, загальнобуд, ремонт квартир.</p>
+            <p style={{ marginTop: 12 }}>📍 бульвар Бобринського, 4, Сміла</p>
+            <p><a href="tel:+380684318000">📞 +38 (068) 431 8000</a></p>
           </div>
           <div>
             <h4>Розділи</h4>
@@ -27,7 +29,7 @@ export default function Footer() {
             <h4>Партнери</h4>
             <a href="https://vgb.team/" target="_blank" rel="noopener">V.G.BuildingTeam ↗</a>
             <a href="https://robota-smila.com.ua/" target="_blank" rel="noopener">Робота у Смілі ↗</a>
-            <a href="tel:+380977799513">+38 (097) 779 95 13</a>
+            <a href="tel:+380684318000">+38 (068) 431 8000</a>
           </div>
         </div>
         <div className="fbottom">

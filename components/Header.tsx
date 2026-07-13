@@ -50,7 +50,7 @@ export default function Header() {
           })}
         </nav>
         <ThemeToggle />
-        <a href="https://vgb.team/" target="_blank" rel="noopener" className="btn cta">Замовити прорахунок</a>
+        <Link href="/kontakty" className="btn cta">Замовити прорахунок</Link>
         <button className="burger" aria-label="Меню" onClick={() => setOpen((v) => !v)}>☰</button>
       </div>
     </motion.header>
