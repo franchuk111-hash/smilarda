@@ -6,7 +6,6 @@ import Footer from '@/components/Footer';
 import { ScrollProgress } from '@/components/Motion';
 import Grain from '@/components/Grain';
 import Preloader from '@/components/Preloader';
-import Cursor from '@/components/Cursor';
 import BusinessJsonLd from '@/components/BusinessJsonLd';
 
 export const metadata: Metadata = {
@@ -32,7 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <Preloader />
-        <Cursor />
         <BusinessJsonLd />
         <Grain />
         <ScrollProgress />

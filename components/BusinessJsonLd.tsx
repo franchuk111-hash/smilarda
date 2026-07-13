@@ -6,7 +6,7 @@ const business = {
   '@id': 'https://smilarda.org.ua/#business',
   name: 'Сміла Буд',
   url: 'https://smilarda.org.ua/',
-  telephone: '+380684318000',
+  telephone: '+380977799513',
   description:
     'Будівельна компанія у Смілі: будівництво та ремонт під ключ — покрівля, утеплення фасадів, гідроізоляція, загальнобудівельні роботи, ремонт квартир і будинків.',
   address: {

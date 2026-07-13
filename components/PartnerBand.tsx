@@ -20,7 +20,7 @@ export default function PartnerBand({ badge, title, text, cta = 'Замовит�
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             <Link href="/kontakty" className="btn lg">{cta}</Link>
-            <a href="tel:+380684318000" className="btn ghost lg" style={{ textAlign: 'center' }}>📞 +38 (068) 431 8000</a>
+            <a href="tel:+380977799513" className="btn ghost lg" style={{ textAlign: 'center' }}>📞 +38 (097) 779 95 13</a>
           </div>
         </Reveal>
       </div>

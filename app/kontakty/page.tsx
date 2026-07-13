@@ -6,7 +6,7 @@ import { Reveal, Stagger, Item } from '@/components/Motion';
 export const metadata: Metadata = {
   title: 'Контакти — будівельна компанія Сміла Буд',
   description:
-    'Контакти Сміла Буд у Смілі: адреса бульвар Бобринського 4, телефон +38 (068) 431 8000, графік роботи. Будівництво та ремонт під ключ. Безкоштовний виїзд на прорахунок.',
+    'Контакти Сміла Буд у Смілі: адреса бульвар Бобринського 4, телефон +38 (097) 779 95 13, графік роботи. Будівництво та ремонт під ключ. Безкоштовний виїзд на прорахунок.',
   alternates: { canonical: '/kontakty' },
 };
 
@@ -29,11 +29,12 @@ export default function Kontakty() {
           <Item className="contact-card">
             <h3>Сміла Буд</h3>
             <div className="contact-row"><span className="ico">🏢</span><div><b>Будівельна компанія</b><span>Будівництво та ремонт під ключ · 5,0 ★ у Google (3 відгуки)</span></div></div>
-            <div className="contact-row"><span className="ico">📞</span><div><b><a href="tel:+380684318000">+38 (068) 431 8000</a></b><span>Дзвінки, Viber, Telegram</span></div></div>
+            <div className="contact-row"><span className="ico">📞</span><div><b><a href="tel:+380977799513">+38 (097) 779 95 13</a></b><span>Дзвінки, Viber, Telegram</span></div></div>
             <div className="contact-row"><span className="ico">📍</span><div><b>бульвар Бобринського, 4</b><span>Сміла, Черкаська область, 20700</span></div></div>
             <div className="contact-row"><span className="ico">🕒</span><div><b>Пн–Сб, 8:00–19:00</b><span>Неділя — за домовленістю</span></div></div>
             <div className="contact-row"><span className="ico">🗺️</span><div><b><a href={GBP} target="_blank" rel="noopener">Профіль у Google · Маршрут</a></b><span>Відгуки, фото та як дістатися</span></div></div>
-            <p style={{ marginTop: 20 }}><a href="tel:+380684318000" className="btn lg">📞 Замовити прорахунок</a></p>
+            <div className="contact-row"><span className="ico">🌐</span><div><b><a href="https://vgb.team/" target="_blank" rel="noopener">vgb.team</a></b><span>Портфоліо робіт, послуги та ціни</span></div></div>
+            <p style={{ marginTop: 20 }}><a href="tel:+380977799513" className="btn lg">📞 Замовити прорахунок</a></p>
           </Item>
 
           <Item className="contact-card">
