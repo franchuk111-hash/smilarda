@@ -21,8 +21,8 @@ export default function ArticleShell({ slug, crumb, cover, title, meta, headline
     '@type': 'Article',
     headline,
     inLanguage: 'uk-UA',
-    author: { '@type': 'Organization', name: 'БудСміла' },
-    publisher: { '@type': 'Organization', name: 'БудСміла' },
+    author: { '@type': 'Organization', name: 'Сміла Буд' },
+    publisher: { '@type': 'Organization', name: 'Сміла Буд' },
     mainEntityOfPage: `https://smilarda.org.ua/blog/${slug}`,
     datePublished,
   };

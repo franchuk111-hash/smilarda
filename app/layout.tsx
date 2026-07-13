@@ -11,12 +11,12 @@ import Cursor from '@/components/Cursor';
 export const metadata: Metadata = {
   metadataBase: new URL('https://smilarda.org.ua'),
   title: {
-    default: 'Будівництво та ремонт у Смілі — ціни, поради, підрядники 2026 | БудСміла',
-    template: '%s | БудСміла',
+    default: 'Будівництво та ремонт у Смілі — ціни, поради, підрядники 2026 | Сміла Буд',
+    template: '%s | Сміла Буд',
   },
   description:
-    'БудСміла — місцевий портал про будівництво та ремонт у Смілі й Черкаській області. Орієнтовні ціни, гайди та перевірені підрядники.',
-  openGraph: { type: 'website', locale: 'uk_UA', siteName: 'БудСміла' },
+    'Сміла Буд — місцевий портал про будівництво та ремонт у Смілі й Черкаській області. Орієнтовні ціни, гайди та перевірені підрядники.',
+  openGraph: { type: 'website', locale: 'uk_UA', siteName: 'Сміла Буд' },
   alternates: { canonical: '/' },
 };
 

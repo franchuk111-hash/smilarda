@@ -37,7 +37,7 @@ export default function Header() {
     >
       <div className="container nav">
         <Link href="/" className="logo" onClick={() => setOpen(false)}>
-          <span className="mark"><Icon name="home" /></span> Буд<b>Сміла</b>
+          <span className="mark"><Icon name="home" /></span> Сміла <b>Буд</b>
         </Link>
         <nav className={`nav-links${open ? ' open' : ''}`}>
           {links.map((l) => {

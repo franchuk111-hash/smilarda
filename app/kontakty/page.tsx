@@ -6,7 +6,7 @@ import { Reveal, Stagger, Item } from '@/components/Motion';
 export const metadata: Metadata = {
   title: 'Контакти — будівництво та ремонт у Смілі',
   description:
-    'Контакти порталу БудСміла та рекомендованого підрядника V.G.BuildingTeam у Смілі: телефон, месенджери, графік роботи. Замовте безкоштовний виїзд на прорахунок.',
+    'Контакти порталу Сміла Буд та рекомендованого підрядника V.G.BuildingTeam у Смілі: телефон, месенджери, графік роботи. Замовте безкоштовний виїзд на прорахунок.',
   alternates: { canonical: '/kontakty' },
 };
 
@@ -20,7 +20,7 @@ export default function Kontakty() {
         <Reveal>
           <p className="kicker">Контакти</p>
           <h2 className="title">Зв’язатися та замовити роботи у Смілі</h2>
-          <p className="sub">БудСміла — інформаційний портал. Замовлення будівельних і ремонтних робіт виконує наш рекомендований підрядник V.G.BuildingTeam.</p>
+          <p className="sub">Сміла Буд — інформаційний портал. Замовлення будівельних і ремонтних робіт виконує наш рекомендований підрядник V.G.BuildingTeam.</p>
         </Reveal>
 
         <Stagger className="contact-grid">
@@ -35,7 +35,7 @@ export default function Kontakty() {
           </Item>
 
           <Item className="contact-card">
-            <h3>Про портал БудСміла</h3>
+            <h3>Про портал Сміла Буд</h3>
             <p style={{ color: 'var(--muted)' }}>Ми публікуємо орієнтовні ціни, гайди та поради з будівництва й ремонту, щоб мешканці Сміли могли спланувати роботи та обрати надійного виконавця.</p>
             <p style={{ color: 'var(--muted)' }}>Портал не виконує роботи безпосередньо — за замовленнями звертайтеся до рекомендованого підрядника за контактами ліворуч.</p>
             <div className="contact-row" style={{ marginTop: 8 }}><span className="ico">🧭</span><div><b>Розділи сайту</b><span><Link href="/poslugy">Послуги</Link> · <Link href="/tsiny">Ціни</Link> · <Link href="/blog">Блог</Link> · <Link href="/robota">Робота</Link></span></div></div>

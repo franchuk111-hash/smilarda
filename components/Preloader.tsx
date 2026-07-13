@@ -41,7 +41,7 @@ export default function Preloader() {
               <span className="mark">
                 <svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="M9 22V12h6v10" /></svg>
               </span>
-              Буд<b>Сміла</b>
+              Сміла <b>Буд</b>
             </div>
             <div className="pl-bar"><motion.span style={{ scaleX: pct / 100 }} /></div>
             <div className="pl-pct">{pct}%</div>

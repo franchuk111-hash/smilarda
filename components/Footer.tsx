@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container">
         <div className="fcols">
           <div>
-            <h4>БудСміла</h4>
+            <h4>Сміла Буд</h4>
             <p>Інформаційний портал про будівництво та ремонт у Смілі й Черкаській області: гайди, орієнтовні ціни, поради з вибору підрядника.</p>
           </div>
           <div>
@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="fbottom">
-          <span>© 2026 smilarda.org.ua — БудСміла. Будівництво та ремонт у Смілі.</span>
+          <span>© 2026 smilarda.org.ua — Сміла Буд. Будівництво та ремонт у Смілі.</span>
           <span>
             Партнери:{' '}
             <a href="https://vgb.team/" target="_blank" rel="noopener" style={{ color: '#fdba74' }}>vgb.team</a>{' · '}
