@@ -93,8 +93,8 @@ export default function Home() {
           <h1>Будівництво та ремонт <em>під ключ</em> у Смілі</h1>
           <p className="lead">Місцевий довідник із будівельних робіт: орієнтовні ціни 2026 року, покрокові гайди та перевірені підрядники Сміли. Розберіться в матеріалах і бюджеті ще до початку робіт.</p>
           <div className="hero-actions">
-            <Magnetic><Link href="/tsiny" className="btn lg">Подивитися ціни 2026</Link></Magnetic>
-            <Magnetic><Link href="/poslugy" className="btn glass lg">Види робіт</Link></Magnetic>
+            <Magnetic><Link href="/kalkulyator" className="btn lg">🧮 Розрахувати вартість ремонту</Link></Magnetic>
+            <Magnetic><Link href="/tsiny" className="btn glass lg">Ціни 2026</Link></Magnetic>
           </div>
           <div className="stats">
             <div className="s"><b><Counter value={12} suffix="+" immediate /></b><span>видів робіт</span></div>
@@ -105,6 +105,15 @@ export default function Home() {
       </section>
 
       <Marquee />
+
+      <section className="block soft"><div className="container">
+        <Reveal style={{ textAlign: 'center' }}>
+          <p className="kicker center">Онлайн-калькулятор</p>
+          <h2 className="title center">Дізнайтесь вартість ремонту за 1 хвилину</h2>
+          <p className="sub center">Оберіть тип ремонту, площу та потрібні роботи — і отримайте орієнтовний кошторис одразу, без дзвінків і очікування.</p>
+          <Magnetic><Link href="/kalkulyator" className="btn lg">🧮 Розрахувати вартість ремонту</Link></Magnetic>
+        </Reveal>
+      </div></section>
 
       <section className="block"><div className="container">
         <Reveal>

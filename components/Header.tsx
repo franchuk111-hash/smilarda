@@ -11,7 +11,6 @@ const links = [
   { href: '/', label: 'Головна' },
   { href: '/poslugy', label: 'Послуги' },
   { href: '/tsiny', label: 'Ціни' },
-  { href: '/kalkulyator', label: 'Калькулятор' },
   { href: '/blog', label: 'Блог' },
   { href: '/robota', label: 'Робота' },
   { href: '/kontakty', label: 'Контакти' },
@@ -51,7 +50,7 @@ export default function Header() {
           })}
         </nav>
         <ThemeToggle />
-        <Link href="/kontakty" className="btn cta">Замовити прорахунок</Link>
+        <Link href="/kalkulyator" className="btn cta">Розрахувати вартість</Link>
         <button className="burger" aria-label="Меню" onClick={() => setOpen((v) => !v)}>☰</button>
       </div>
     </motion.header>
