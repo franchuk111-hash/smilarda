@@ -11,6 +11,7 @@ const links = [
   { href: '/', label: 'Головна' },
   { href: '/poslugy', label: 'Послуги' },
   { href: '/tsiny', label: 'Ціни' },
+  { href: '/kalkulyator', label: 'Калькулятор' },
   { href: '/blog', label: 'Блог' },
   { href: '/robota', label: 'Робота' },
   { href: '/kontakty', label: 'Контакти' },

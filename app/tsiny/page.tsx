@@ -59,6 +59,9 @@ export default function Tsiny() {
           </table>
         </Reveal>
         <p style={{ color: 'var(--muted)', fontSize: 14, marginTop: 14 }}>* Ціни орієнтовні й наведені для загального планування бюджету. Реальна вартість залежить від обсягу, матеріалів і складності об’єкта.</p>
+        <Reveal style={{ marginTop: 22 }}>
+          <Link href="/kalkulyator" className="btn lg">🧮 Розрахувати вартість ремонту онлайн</Link>
+        </Reveal>
       </div></section>
 
       <section className="block soft"><div className="container">
