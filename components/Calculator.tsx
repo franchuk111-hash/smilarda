@@ -307,7 +307,7 @@ export default function Calculator() {
             <div className="calc-err">Будь ласка, вкажіть ім’я та коректний номер телефону.</div>
             <button type="submit" className="btn lg" disabled={sending}>{sending ? 'Надсилаємо…' : 'Отримати кошторис'}</button>
           </form>
-          <div className="calc-privacy">Натискаючи кнопку, ви погоджуєтесь на обробку даних. Ми не передаємо їх третім особам.</div>
+          <div className="calc-privacy">Натискаючи кнопку, ви погоджуєтесь на обробку даних згідно з <a href="/polityka-konfidentsiynosti">Політикою конфіденційності</a>.</div>
         </div>
       </div>
     );

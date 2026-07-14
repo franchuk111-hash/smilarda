@@ -7,6 +7,7 @@ import { ScrollProgress } from '@/components/Motion';
 import Grain from '@/components/Grain';
 import Preloader from '@/components/Preloader';
 import BusinessJsonLd from '@/components/BusinessJsonLd';
+import CookieConsent from '@/components/CookieConsent';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://smilarda.org.ua'),
@@ -37,10 +38,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
         <Footer />
+        <CookieConsent />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-09V5BVMP18" strategy="afterInteractive" />
         <Script id="ga4" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied', wait_for_update: 500 });
 gtag('js', new Date());
 gtag('config', 'G-09V5BVMP18');`}
         </Script>

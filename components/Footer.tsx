@@ -18,6 +18,7 @@ export default function Footer() {
             <Link href="/blog">Блог</Link>
             <Link href="/robota">Робота</Link>
             <Link href="/kontakty">Контакти</Link>
+            <Link href="/polityka-konfidentsiynosti">Політика конфіденційності</Link>
           </div>
           <div>
             <h4>Популярне</h4>

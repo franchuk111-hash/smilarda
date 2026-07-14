@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 export const dynamic = 'force-static';
 
 const base = 'https://smilarda.org.ua';
-const routes = ['/', '/poslugy', '/tsiny', '/kalkulyator', '/blog', '/blog/pokrivlya', '/blog/uteplennya', '/blog/remont', '/robota', '/kontakty'];
+const routes = ['/', '/poslugy', '/tsiny', '/kalkulyator', '/blog', '/blog/pokrivlya', '/blog/uteplennya', '/blog/remont', '/robota', '/kontakty', '/polityka-konfidentsiynosti'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((r) => ({
