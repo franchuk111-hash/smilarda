@@ -1,0 +1,2 @@
+:HL["/_next/static/chunks/35kpptk7be9qb.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"polityka-konfidentsiynosti","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"-ODYI6IR84YQTi_aUC8MC"}
