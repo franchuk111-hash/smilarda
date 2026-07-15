@@ -16,6 +16,13 @@ export default function CookieConsent() {
     setShow(true); // вибору ще не було — показуємо банер
   }, []);
 
+  // Повторне відкриття банера зі сторінки «Політика cookie»
+  useEffect(() => {
+    const open = () => setShow(true);
+    window.addEventListener('open-cookie-settings', open);
+    return () => window.removeEventListener('open-cookie-settings', open);
+  }, []);
+
   function updateConsent(v: 'granted' | 'denied') {
     const w = window as unknown as { gtag?: (...a: unknown[]) => void; dataLayer?: unknown[] };
     const payload = { analytics_storage: v, ad_storage: v };

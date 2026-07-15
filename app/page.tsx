@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
 import PartnerBand from '@/components/PartnerBand';
+import Reviews from '@/components/Reviews';
 import Icon from '@/components/Icon';
 import Marquee from '@/components/Marquee';
 import Magnetic from '@/components/Magnetic';
@@ -217,6 +218,8 @@ export default function Home() {
           ))}
         </Stagger>
       </div></section>
+
+      <Reviews />
 
       <PartnerBand
         badge="🏗️ Будівельна компанія · 5,0 ★ Google"

@@ -18,7 +18,6 @@ export default function Footer() {
             <Link href="/blog">Блог</Link>
             <Link href="/robota">Робота</Link>
             <Link href="/kontakty">Контакти</Link>
-            <Link href="/polityka-konfidentsiynosti">Політика конфіденційності</Link>
           </div>
           <div>
             <h4>Популярне</h4>
@@ -32,6 +31,15 @@ export default function Footer() {
             <a href="https://robota-smila.com.ua/" target="_blank" rel="noopener">Робота у Смілі ↗</a>
             <a href="tel:+380977799513">+38 (097) 779 95 13</a>
           </div>
+        </div>
+        <div className="flegal">
+          <Link href="/polityka-konfidentsiynosti">Конфіденційність</Link>
+          <span className="sep">•</span>
+          <Link href="/umovy-vykorystannya">Умови</Link>
+          <span className="sep">•</span>
+          <Link href="/polityka-cookie">Cookies</Link>
+          <span className="sep">•</span>
+          <Link href="/dyskleimer">Дисклеймер</Link>
         </div>
         <div className="fbottom">
           <span>© 2026 smilarda.org.ua — Сміла Буд. Будівництво та ремонт у Смілі.</span>

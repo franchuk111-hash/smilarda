@@ -362,6 +362,13 @@ h2.center{text-align:center}
 .seo-text p{color:var(--muted);margin:0 0 14px}
 .seo-text p:last-child{margin:0}
 
+/* Reviews / rating */
+.rating-card{max-width:560px;margin:0 auto;text-align:center;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:38px 32px;box-shadow:var(--shadow)}
+.rate-num{font-size:clamp(48px,7vw,68px);font-weight:800;line-height:1;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rate-stars{font-size:26px;color:#f59e0b;letter-spacing:5px;margin:12px 0 6px}
+.rate-meta{color:var(--muted);font-size:15px;margin-bottom:24px}
+.rate-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
 /* Contact */
 .map-embed{margin-top:28px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)}
 .map-embed iframe{width:100%;height:400px;display:block;border:0;filter:saturate(.95)}
@@ -518,3 +525,10 @@ footer.site p{color:#8a827a;font-size:15px;margin:0}
 .cookie-actions{display:flex;gap:10px;flex:0 0 auto}
 .cookie-actions .btn{padding:11px 20px;font-size:15px}
 @media(max-width:560px){.cookie-actions{width:100%}.cookie-actions .btn{flex:1}}
+
+/* ---------- Правовий рядок у футері ---------- */
+.flegal{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;
+  margin-top:26px;padding-top:18px;border-top:1px solid var(--border);font-size:14px}
+.flegal a{color:var(--muted)}
+.flegal a:hover{color:var(--accent-d);opacity:1}
+.flegal .sep{color:var(--muted2)}
